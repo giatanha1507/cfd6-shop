@@ -1,15 +1,19 @@
 import React from "react";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function Reviews() {
+  let { t } = useTranslate();
   return (
     <section className="py-12">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10 col-lg-8 col-xl-6 text-center">
             {/* Preheading */}
-            <h6 className="heading-xxs mb-3 text-gray-400">What buyers say</h6>
+            <h6 className="heading-xxs mb-3 text-gray-400">
+              {t("What buyers say")}
+            </h6>
             {/* Heading */}
-            <h2 className="mb-10">Latest buyers Reviews</h2>
+            <h2 className="mb-10">{t("Latest buyers Review")}s</h2>
           </div>
         </div>
         <div className="row">
@@ -33,14 +37,14 @@ export function Reviews() {
                       <div className="col-8 ml-n2">
                         {/* Preheading */}
                         <a className="font-size-xs text-muted" href="shop.html">
-                          Shoes
+                          {t(" Shoes")}
                         </a>
                         {/* Heading */}
                         <a
                           className="d-block font-weight-bold text-body"
                           href="product.html"
                         >
-                          Low top Sneakers
+                          {t("Low top Sneakers")}
                         </a>
                         {/* Rating */}
                         <div
@@ -68,13 +72,13 @@ export function Reviews() {
                     {/* Blockquote */}
                     <blockquote className="mb-0">
                       <p className="text-muted">
-                        From creepeth said moved given divide make multiply of
-                        him shall itself also above second doesn't unto created
-                        saying land herb sea midst night wherein.
+                        {t(
+                          "From creepeth said moved given divide make multiply of him shall itself also above second doesn't unto created saying land herb sea midst night wherein."
+                        )}
                       </p>
                       <footer className="font-size-xs text-muted">
-                        Logan Edwards,{" "}
-                        <time dateTime="2019-06-01">01 Jun 2019</time>
+                        {t(" Logan Edwards")},{" "}
+                        <time dateTime="2019-06-01">{t("01 Jun 2019")}</time>
                       </footer>
                     </blockquote>
                   </div>
@@ -97,14 +101,14 @@ export function Reviews() {
                       <div className="col-8 ml-n2">
                         {/* Preheading */}
                         <a className="font-size-xs text-muted" href="shop.html">
-                          Dresses
+                          {t("   Dresses")}
                         </a>
                         {/* Heading */}
                         <a
                           className="d-block font-weight-bold text-body"
                           href="product.html"
                         >
-                          Cotton print Dress
+                          {t("  Cotton print Dress")}
                         </a>
                         {/* Rating */}
                         <div
@@ -132,14 +136,13 @@ export function Reviews() {
                     {/* Blockquote */}
                     <blockquote className="mb-0">
                       <p className="text-muted">
-                        God every fill great replenish darkness unto. Very open.
-                        Likeness their that light. Given under image to. Subdue
-                        of shall cattle day fish form saw spirit and given
-                        stars, us you whales may, land, saw fill unto.
+                        {t(
+                          "From creepeth said moved given divide make multiply of him shall itself also above second doesn't unto created saying land herb sea midst night wherein."
+                        )}
                       </p>
                       <footer className="font-size-xs text-muted">
-                        Jane Jefferson,{" "}
-                        <time dateTime="2019-05-29">29 May 2019</time>
+                        {t("Jane Jefferson")},{" "}
+                        <time dateTime="2019-05-29">{t("29 May 2019")}</time>
                       </footer>
                     </blockquote>
                   </div>
@@ -162,14 +165,14 @@ export function Reviews() {
                       <div className="col-8 ml-n2">
                         {/* Preheading */}
                         <a className="font-size-xs text-muted" href="shop.html">
-                          T-shirts
+                          {t(" T-shirts")}
                         </a>
                         {/* Heading */}
                         <a
                           className="d-block font-weight-bold text-body"
                           href="product.html"
                         >
-                          Oversized print T-shirt
+                          {t("   Oversized print T-shirt")}
                         </a>
                         {/* Rating */}
                         <div
@@ -197,13 +200,13 @@ export function Reviews() {
                     {/* Blockquote */}
                     <blockquote className="mb-0">
                       <p className="text-muted">
-                        Fill his waters wherein signs likeness waters. Second
-                        light gathered appear sixth fourth, seasons behold
-                        creeping female.
+                        {t(
+                          "From creepeth said moved given divide make multiply of him shall itself also above second doesn't unto created saying land herb sea midst night wherein."
+                        )}
                       </p>
                       <footer className="font-size-xs text-muted">
-                        Darrell Baker,{" "}
-                        <time dateTime="2019-05-18">18 May 2019</time>
+                        {t("Darrell Baker")},{" "}
+                        <time dateTime="2019-05-18">{t("18 May 2019")}</time>
                       </footer>
                     </blockquote>
                   </div>
@@ -226,14 +229,14 @@ export function Reviews() {
                       <div className="col-8 ml-n2">
                         {/* Preheading */}
                         <a className="font-size-xs text-muted" href="shop.html">
-                          Bags &amp; Accessories
+                          {t("Bags &amp; Accessories")}
                         </a>
                         {/* Heading */}
                         <a
                           className="d-block font-weight-bold text-body"
                           href="product.html"
                         >
-                          Suede cross body Bag
+                          {t("    Suede cross body Bag")}
                         </a>
                         {/* Rating */}
                         <div
@@ -261,14 +264,13 @@ export function Reviews() {
                     {/* Blockquote */}
                     <blockquote className="mb-0">
                       <p className="text-muted">
-                        God every fill great replenish darkness unto. Very open.
-                        Likeness their that light. Given under image to. Subdue
-                        of shall cattle day fish form saw spirit and given
-                        stars.
+                        {t(
+                          "From creepeth said moved given divide make multiply of him shall itself also above second doesn't unto created saying land herb sea midst night wherein."
+                        )}
                       </p>
                       <footer className="font-size-xs text-muted">
-                        Pavel Doe,{" "}
-                        <time dateTime="2019-05-29">29 May 2019</time>
+                        {t("Pavel Doe")},{" "}
+                        <time dateTime="2019-05-29">{t("29 May 2019")}</time>
                       </footer>
                     </blockquote>
                   </div>

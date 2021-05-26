@@ -1,8 +1,10 @@
 import React from "react";
 import { useRouteMatch } from "react-router";
 import { NavLink } from "react-router-dom";
+import useTranslate from "../../../../../core/hook/useTranslate";
 
 export function OrderItem() {
+  let { t } = useTranslate();
   let { path } = useRouteMatch();
   return (
     <div className="card card-lg mb-5 border">
@@ -13,7 +15,7 @@ export function OrderItem() {
             <div className="row">
               <div className="col-6 col-lg-3">
                 {/* Heading */}
-                <h6 className="heading-xxxs text-muted">Order No:</h6>
+                <h6 className="heading-xxxs text-muted">{t("Order No")}:</h6>
                 {/* Text */}
                 <p className="mb-lg-0 font-size-sm font-weight-bold">
                   673290789
@@ -21,7 +23,9 @@ export function OrderItem() {
               </div>
               <div className="col-6 col-lg-3">
                 {/* Heading */}
-                <h6 className="heading-xxxs text-muted">Shipped date:</h6>
+                <h6 className="heading-xxxs text-muted">
+                  {t("Shipped date")}:
+                </h6>
                 {/* Text */}
                 <p className="mb-lg-0 font-size-sm font-weight-bold">
                   <time dateTime="2019-10-01">01 Oct, 2019</time>
@@ -29,15 +33,17 @@ export function OrderItem() {
               </div>
               <div className="col-6 col-lg-3">
                 {/* Heading */}
-                <h6 className="heading-xxxs text-muted">Status:</h6>
+                <h6 className="heading-xxxs text-muted">{t("Status")}:</h6>
                 {/* Text */}
                 <p className="mb-0 font-size-sm font-weight-bold">
-                  Awating Delivery
+                  {t("Awating Delivery")}
                 </p>
               </div>
               <div className="col-6 col-lg-3">
                 {/* Heading */}
-                <h6 className="heading-xxxs text-muted">Order Amount:</h6>
+                <h6 className="heading-xxxs text-muted">
+                  {t("Order Amount")}:
+                </h6>
                 {/* Text */}
                 <p className="mb-0 font-size-sm font-weight-bold">$259.00</p>
               </div>
@@ -84,7 +90,7 @@ export function OrderItem() {
                     href="#!"
                   >
                     <div className="font-size-xxs font-weight-bold">
-                      +2 <br /> more
+                      +2 <br /> {t("more")}
                     </div>
                   </a>
                 </div>
@@ -100,13 +106,13 @@ export function OrderItem() {
                   className="btn btn-sm btn-block btn-outline-dark"
                   href="account-order.html"
                 >
-                  Order Details
+                  {t("Order Details")}
                 </NavLink>
               </div>
               <div className="col-6">
                 {/* Button */}
                 <a className="btn btn-sm btn-block btn-outline-dark" href="#!">
-                  Track order
+                  {t("Track order")}
                 </a>
               </div>
             </div>

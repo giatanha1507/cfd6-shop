@@ -1,14 +1,16 @@
 import React from "react";
 import { CartItem } from "../../../component";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function ShoppingDetails() {
+  let { t } = useTranslate();
   return (
     <section className="pt-7 pb-12">
       <div className="container">
         <div className="row">
           <div className="col-12">
             {/* Heading */}
-            <h3 className="mb-10 text-center">Shopping Cart</h3>
+            <h3 className="mb-10 text-center">{t("Shopping Car")}t</h3>
           </div>
         </div>
         <div className="row">
@@ -28,7 +30,7 @@ export function ShoppingDetails() {
                     className="font-size-sm font-weight-bold"
                     htmlFor="cartCouponCode"
                   >
-                    Coupon code:
+                    {t("Coupon code:")}
                   </label>
                   <div className="row form-row">
                     <div className="col">
@@ -43,7 +45,7 @@ export function ShoppingDetails() {
                     <div className="col-auto">
                       {/* Button */}
                       <button className="btn btn-sm btn-dark" type="submit">
-                        Apply
+                        {t(" Apply")}
                       </button>
                     </div>
                   </div>
@@ -52,7 +54,7 @@ export function ShoppingDetails() {
               <div className="col-12 col-md-auto">
                 {/* Button */}
                 <button className="btn btn-sm btn-outline-dark">
-                  Update Cart
+                  {t("Update Cart")}
                 </button>
               </div>
             </div>
@@ -63,30 +65,30 @@ export function ShoppingDetails() {
               <div className="card-body">
                 <ul className="list-group list-group-sm list-group-flush-y list-group-flush-x">
                   <li className="list-group-item d-flex">
-                    <span>Subtotal</span>{" "}
+                    <span>{t("Subtotal")}</span>{" "}
                     <span className="ml-auto font-size-sm">$89.00</span>
                   </li>
                   <li className="list-group-item d-flex">
-                    <span>Tax</span>{" "}
+                    <span>{t("Tax")}</span>{" "}
                     <span className="ml-auto font-size-sm">$00.00</span>
                   </li>
                   <li className="list-group-item d-flex font-size-lg font-weight-bold">
-                    <span>Total</span>{" "}
+                    <span>{t("Total")}</span>{" "}
                     <span className="ml-auto font-size-sm">$89.00</span>
                   </li>
                   <li className="list-group-item font-size-sm text-center text-gray-500">
-                    Shipping cost calculated at Checkout *
+                    {t("Shipping cost calculated at Checkout *")}
                   </li>
                 </ul>
               </div>
             </div>
             {/* Button */}
             <a className="btn btn-block btn-dark mb-2" href="checkout.html">
-              Proceed to Checkout
+              {t(" Proceed to Checkout")}
             </a>
             {/* Link */}
             <a className="btn btn-link btn-sm px-0 text-body" href="shop.html">
-              <i className="fe fe-arrow-left mr-2" /> Continue Shopping
+              <i className="fe fe-arrow-left mr-2" /> {t("Continue Shopping")}
             </a>
           </div>
         </div>

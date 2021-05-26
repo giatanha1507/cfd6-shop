@@ -1,7 +1,9 @@
 import React from "react";
 import { Paging, ProductShop } from "../../../component";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function ContentShop() {
+  let { t } = useTranslate();
   return (
     <section className="py-11">
       <div className="container">
@@ -17,7 +19,7 @@ export function ContentShop() {
                     data-toggle="collapse"
                     href="#categoryCollapse"
                   >
-                    Category
+                    {t("  Category")}
                   </a>
                   {/* Collapse */}
                   <div className="collapse show" id="categoryCollapse">
@@ -25,7 +27,7 @@ export function ContentShop() {
                       <ul className="list-styled mb-0" id="productsNav">
                         <li className="list-styled-item">
                           <a className="list-styled-link" href="#">
-                            All Products
+                            {t(" All Products")}
                           </a>
                         </li>
                         <li className="list-styled-item">
@@ -35,7 +37,7 @@ export function ContentShop() {
                             data-toggle="collapse"
                             href="#blousesCollapse"
                           >
-                            Blouses and Shirts
+                            {t("   Blouses and Shirts")}
                           </a>
                           {/* Collapse */}
                           <div
@@ -54,7 +56,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="blousesOne"
                                 >
-                                  Women Tops, Tees &amp; Blouses
+                                  {t(" Women Tops, Tees &amp; Blouses")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -67,7 +69,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="blousesTwo"
                                 >
-                                  Petite
+                                  {t("    Petite")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -80,7 +82,9 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="blousesThree"
                                 >
-                                  Petite-Size Blouses &amp; Button-Down Shirts
+                                  {t(
+                                    "  Petite-Size Blouses &amp; Button-Down Shirts"
+                                  )}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox">
@@ -93,7 +97,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="blousesFour"
                                 >
-                                  Women Plus Tops &amp; Tees
+                                  {t(" Women Plus Tops &amp; Tees")}
                                 </label>
                               </div>
                             </div>
@@ -106,7 +110,7 @@ export function ContentShop() {
                             data-toggle="collapse"
                             href="#coatsCollapse"
                           >
-                            Coats and Jackets
+                            {t("Coats and Jackets")}
                           </a>
                           {/* Collapse */}
                           <div
@@ -125,7 +129,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="coatsOne"
                                 >
-                                  Coats, Jackets &amp; Vests
+                                  {t("Coats, Jackets &amp; Vests")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -138,7 +142,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="coatsTwo"
                                 >
-                                  Down Jackets &amp; Parkas
+                                  {t("  Down Jackets &amp; Parkas")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox">
@@ -151,7 +155,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="coatsThree"
                                 >
-                                  Wool &amp; Pea Coats Plus-Size
+                                  {t(" Wool &amp; Pea Coats Plus-Size")}
                                 </label>
                               </div>
                             </div>
@@ -165,7 +169,7 @@ export function ContentShop() {
                             href="#dressesCollapse"
                             aria-expanded="true"
                           >
-                            Dresses
+                            {t("Dresses")}
                           </a>
                           {/* Collapse */}
                           <div
@@ -184,7 +188,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="dressesOne"
                                 >
-                                  A-line Dresses
+                                  {t("  A-line Dresses")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -198,7 +202,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="dressesTwo"
                                 >
-                                  Shift Dresses
+                                  {t("Shift Dresses")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -211,7 +215,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="dressesThree"
                                 >
-                                  Wrap Dresses
+                                  {t(" Wrap Dresses")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox">
@@ -224,7 +228,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="dressesFour"
                                 >
-                                  Maxi Dresses
+                                  {t("Maxi Dresses")}
                                 </label>
                               </div>
                             </div>
@@ -237,7 +241,7 @@ export function ContentShop() {
                             data-toggle="collapse"
                             href="#hoodiesCollapse"
                           >
-                            Hoodies and Sweats
+                            {t("Hoodies and Sweats")}
                           </a>
                           {/* Collapse */}
                           <div
@@ -256,7 +260,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="hoodiesOne"
                                 >
-                                  Activewear
+                                  {t("  Activewear")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -269,7 +273,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="hoodiesTwo"
                                 >
-                                  Fashion Hoodies &amp; Sweatshirts
+                                  {t("Fashion Hoodies &amp; Sweatshirts")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -282,7 +286,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="hoodiesThree"
                                 >
-                                  Big &amp; Tall Sweatshirts
+                                  {t(" Big &amp; Tall Sweatshirts")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox">
@@ -295,7 +299,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="hoodiesFour"
                                 >
-                                  Big &amp; Tall Fashion Hoodies
+                                  {t("Big &amp; Tall Fashion Hoodies")}
                                 </label>
                               </div>
                             </div>
@@ -308,7 +312,7 @@ export function ContentShop() {
                             data-toggle="collapse"
                             href="#denimCollapse"
                           >
-                            Denim
+                            {t("   Denim")}
                           </a>
                           {/* Collapse */}
                           <div
@@ -327,7 +331,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="denimOne"
                                 >
-                                  Women Shorts
+                                  {t(" Women Shorts")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -340,7 +344,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="denimTwo"
                                 >
-                                  Juniors' Shorts
+                                  {t(" Juniors' Shorts")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -353,7 +357,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="denimThree"
                                 >
-                                  Petite
+                                  {t("  Petite")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox">
@@ -366,7 +370,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="denimFour"
                                 >
-                                  Women Plus Shorts
+                                  {t("Women Plus Shorts")}
                                 </label>
                               </div>
                             </div>
@@ -379,7 +383,7 @@ export function ContentShop() {
                             data-toggle="collapse"
                             href="#jeansCollapse"
                           >
-                            Jeans
+                            {t(" Jeans")}
                           </a>
                           {/* Collapse */}
                           <div
@@ -398,7 +402,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="jeansOne"
                                 >
-                                  Men Jeans
+                                  {t("  Men Jeans")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -411,7 +415,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="jeansTwo"
                                 >
-                                  Men Big &amp; Tall Jeans
+                                  {t("Men Big &amp; Tall Jeans")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -424,7 +428,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="jeansThree"
                                 >
-                                  Surf, Skate &amp; Street Clothing
+                                  {t("  Surf, Skate &amp; Street Clothing")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox">
@@ -437,7 +441,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="jeansFour"
                                 >
-                                  Men Big &amp; Tall Pants
+                                  {t("Men Big &amp; Tall Pants")}
                                 </label>
                               </div>
                             </div>
@@ -450,7 +454,7 @@ export function ContentShop() {
                             data-toggle="collapse"
                             href="#jumpersCollapse"
                           >
-                            Jumpers and Cardigans
+                            {t("Jumpers and Cardigans")}
                           </a>
                           {/* Collapse */}
                           <div
@@ -469,7 +473,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="jumpersOne"
                                 >
-                                  Sweaters Plus-Size
+                                  {t("Sweaters Plus-Size")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -482,7 +486,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="jumpersTwo"
                                 >
-                                  Plus Sweaters
+                                  {t("Plus Sweaters")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -495,7 +499,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="jumpersThree"
                                 >
-                                  Petite Cardigans
+                                  {t("Petite Cardigans")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox">
@@ -508,7 +512,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="jumpersFour"
                                 >
-                                  Tops, Tees &amp; Blouses
+                                  {t("Tops, Tees &amp; Blouses")}
                                 </label>
                               </div>
                             </div>
@@ -521,7 +525,7 @@ export function ContentShop() {
                             data-toggle="collapse"
                             href="#legginsCollapse"
                           >
-                            Leggings
+                            {t(" Leggings")}
                           </a>
                           {/* Collapse */}
                           <div
@@ -540,7 +544,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="legginsOne"
                                 >
-                                  Novelty Leggings
+                                  {t(" Novelty Leggings")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -553,7 +557,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="legginsTwo"
                                 >
-                                  Novelty Pants &amp; Capris
+                                  {t("Novelty Pants &amp; Capris")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox mb-3">
@@ -566,7 +570,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="legginsThree"
                                 >
-                                  Women Yoga Leggings
+                                  {t("Women Yoga Leggings")}
                                 </label>
                               </div>
                               <div className="custom-control custom-checkbox">
@@ -579,7 +583,7 @@ export function ContentShop() {
                                   className="custom-control-label"
                                   htmlFor="legginsFour"
                                 >
-                                  Workout &amp; Training Leggings
+                                  {t(" Workout &amp; Training Leggings")}
                                 </label>
                               </div>
                             </div>
@@ -596,7 +600,7 @@ export function ContentShop() {
                     data-toggle="collapse"
                     href="#seasonCollapse"
                   >
-                    Season
+                    {t("Season")}
                   </a>
                   {/* Collapse */}
                   <div
@@ -620,7 +624,7 @@ export function ContentShop() {
                           className="custom-control-label"
                           htmlFor="seasonOne"
                         >
-                          Summer
+                          {t("Summer")}
                         </label>
                       </div>
                       <div className="custom-control custom-checkbox mb-3">
@@ -633,7 +637,7 @@ export function ContentShop() {
                           className="custom-control-label"
                           htmlFor="seasonTwo"
                         >
-                          Winter
+                          {t("  Winter")}
                         </label>
                       </div>
                       <div className="custom-control custom-checkbox">
@@ -646,7 +650,7 @@ export function ContentShop() {
                           className="custom-control-label"
                           htmlFor="seasonThree"
                         >
-                          Spring &amp; Autumn
+                          {t(" Spring &amp; Autumn")}
                         </label>
                       </div>
                     </div>
@@ -659,7 +663,7 @@ export function ContentShop() {
                     data-toggle="collapse"
                     href="#sizeCollapse"
                   >
-                    Size
+                    {t(" Size")}
                   </a>
                   {/* Collapse */}
                   <div
@@ -815,7 +819,7 @@ export function ContentShop() {
                           className="custom-control-label"
                           htmlFor="sizeEleven"
                         >
-                          One Size
+                          {t("One Size")}
                         </label>
                       </div>
                     </div>
@@ -828,7 +832,7 @@ export function ContentShop() {
                     data-toggle="collapse"
                     href="#colorCollapse"
                   >
-                    Color
+                    {t(" Color")}
                   </a>
                   {/* Collapse */}
                   <div
@@ -851,7 +855,7 @@ export function ContentShop() {
                           className="custom-control-label text-dark"
                           htmlFor="colorOne"
                         >
-                          <span className="text-body">Black</span>
+                          <span className="text-body">{t("Black")}</span>
                         </label>
                       </div>
                       <div className="custom-control custom-control-color mb-3">
@@ -866,7 +870,7 @@ export function ContentShop() {
                           style={{ color: "#f9f9f9" }}
                           htmlFor="colorTwo"
                         >
-                          <span className="text-body">White</span>
+                          <span className="text-body">{t("White")}</span>
                         </label>
                       </div>
                       <div className="custom-control custom-control-color mb-3">
@@ -879,7 +883,7 @@ export function ContentShop() {
                           className="custom-control-label text-info"
                           htmlFor="colorThree"
                         >
-                          <span className="text-body">Blue</span>
+                          <span className="text-body">{t("Blue")}</span>
                         </label>
                       </div>
                       <div className="custom-control custom-control-color mb-3">
@@ -892,7 +896,7 @@ export function ContentShop() {
                           className="custom-control-label text-primary"
                           htmlFor="colorFour"
                         >
-                          <span className="text-body">Red</span>
+                          <span className="text-body">{t("Red")}</span>
                         </label>
                       </div>
                       <div className="custom-control custom-control-color mb-3">
@@ -907,7 +911,7 @@ export function ContentShop() {
                           htmlFor="colorFive"
                           style={{ color: "#795548" }}
                         >
-                          <span className="text-body">Brown</span>
+                          <span className="text-body">{t("Brown")}</span>
                         </label>
                       </div>
                       <div className="custom-control custom-control-color mb-3">
@@ -920,7 +924,7 @@ export function ContentShop() {
                           className="custom-control-label text-gray-300"
                           htmlFor="colorSix"
                         >
-                          <span className="text-body">Gray</span>
+                          <span className="text-body">{t("Gray")}</span>
                         </label>
                       </div>
                       <div className="custom-control custom-control-color mb-3">
@@ -934,7 +938,7 @@ export function ContentShop() {
                           htmlFor="colorSeven"
                           style={{ color: "#17a2b8" }}
                         >
-                          <span className="text-body">Cyan</span>
+                          <span className="text-body">{t("Cyan")}</span>
                         </label>
                       </div>
                       <div className="custom-control custom-control-color">
@@ -948,7 +952,7 @@ export function ContentShop() {
                           htmlFor="colorEight"
                           style={{ color: "#e83e8c" }}
                         >
-                          <span className="text-body">Pink</span>
+                          <span className="text-body">{t("Pink")}</span>
                         </label>
                       </div>
                     </div>
@@ -961,7 +965,7 @@ export function ContentShop() {
                     data-toggle="collapse"
                     href="#brandCollapse"
                   >
-                    Brand
+                    {t("Brand")}
                   </a>
                   {/* Collapse */}
                   <div
@@ -1005,7 +1009,7 @@ export function ContentShop() {
                               className="custom-control-label name"
                               htmlFor="brandOne"
                             >
-                              Dsquared2
+                              {t("Dsquared2")}
                             </label>
                           </div>
                           <div className="custom-control custom-checkbox mb-3">
@@ -1019,7 +1023,7 @@ export function ContentShop() {
                               className="custom-control-label name"
                               htmlFor="brandTwo"
                             >
-                              Alexander McQueen
+                              {t("Alexander McQueen")}
                             </label>
                           </div>
                           <div className="custom-control custom-checkbox mb-3">
@@ -1032,7 +1036,7 @@ export function ContentShop() {
                               className="custom-control-label name"
                               htmlFor="brandThree"
                             >
-                              Balenciaga
+                              {t("Balenciaga")}
                             </label>
                           </div>
                           <div className="custom-control custom-checkbox mb-3">
@@ -1046,7 +1050,7 @@ export function ContentShop() {
                               className="custom-control-label name"
                               htmlFor="brandFour"
                             >
-                              Adidas
+                              {t(" Adidas")}
                             </label>
                           </div>
                           <div className="custom-control custom-checkbox mb-3">
@@ -1059,7 +1063,7 @@ export function ContentShop() {
                               className="custom-control-label name"
                               htmlFor="brandFive"
                             >
-                              Balmain
+                              {t("Balmain")}
                             </label>
                           </div>
                           <div className="custom-control custom-checkbox mb-3">
@@ -1072,7 +1076,7 @@ export function ContentShop() {
                               className="custom-control-label name"
                               htmlFor="brandSix"
                             >
-                              Burberry
+                              {t("Burberry")}
                             </label>
                           </div>
                           <div className="custom-control custom-checkbox mb-3">
@@ -1085,7 +1089,7 @@ export function ContentShop() {
                               className="custom-control-label name"
                               htmlFor="brandSeven"
                             >
-                              Chloé
+                              {t(" Chloé")}
                             </label>
                           </div>
                           <div className="custom-control custom-checkbox mb-3">
@@ -1098,7 +1102,7 @@ export function ContentShop() {
                               className="custom-control-label name"
                               htmlFor="brandEight"
                             >
-                              Kenzo
+                              {t("Kenzo")}
                             </label>
                           </div>
                           <div className="custom-control custom-checkbox">
@@ -1111,7 +1115,7 @@ export function ContentShop() {
                               className="custom-control-label name"
                               htmlFor="brandNine"
                             >
-                              Givenchy
+                              {t("Givenchy")}
                             </label>
                           </div>
                         </div>
@@ -1126,7 +1130,7 @@ export function ContentShop() {
                     data-toggle="collapse"
                     href="#priceCollapse"
                   >
-                    Price
+                    {t("Price")}
                   </a>
                   {/* Collapse */}
                   <div
@@ -1235,13 +1239,13 @@ export function ContentShop() {
                     <div className="col-12 col-md-10 col-lg-8 col-xl-6 align-self-center">
                       <div className="card-body px-md-10 py-11">
                         {/* Heading */}
-                        <h4>2019 Summer Collection</h4>
+                        <h4>{t("2019 Summer Collection")}</h4>
                         {/* Button */}
                         <a
                           className="btn btn-link px-0 text-body"
                           href="shop.html"
                         >
-                          View Collection{" "}
+                          {t("View Collection")}{" "}
                           <i className="fe fe-arrow-right ml-2" />
                         </a>
                       </div>
@@ -1269,18 +1273,19 @@ export function ContentShop() {
                       <div className="card-body px-md-10 py-11">
                         {/* Heading */}
                         <h4 className="mb-5">
-                          Get -50% from Summer Collection
+                          {t("Get -50% from Summer Collection")}
                         </h4>
                         {/* Text */}
                         <p className="mb-7">
-                          Appear, dry there darkness they're seas. <br />
+                          {t("Appear, dry there darkness they're seas.")} <br />
                           <strong className="text-primary">
-                            Use code 4GF5SD
+                            {t("Use code 4GF5SD")}
                           </strong>
                         </p>
                         {/* Button */}
                         <a className="btn btn-outline-dark" href="shop.html">
-                          Shop Now <i className="fe fe-arrow-right ml-2" />
+                          {t("Shop Now")}{" "}
+                          <i className="fe fe-arrow-right ml-2" />
                         </a>
                       </div>
                     </div>
@@ -1300,15 +1305,17 @@ export function ContentShop() {
                     <div className="col-12">
                       <div className="card-body px-md-10 py-11 text-center text-white">
                         {/* Preheading */}
-                        <p className="text-uppercase">Enjoy an extra</p>
+                        <p className="text-uppercase">{t("Enjoy an extra")}</p>
                         {/* Heading */}
-                        <h1 className="display-4 text-uppercase">50% off</h1>
+                        <h1 className="display-4 text-uppercase">
+                          {t("50% off")}
+                        </h1>
                         {/* Link */}
                         <a
                           className="link-underline text-reset"
                           href="shop.html"
                         >
-                          Shop Collection
+                          {t("Shop Collection")}
                         </a>
                       </div>
                     </div>
@@ -1320,21 +1327,23 @@ export function ContentShop() {
             <div className="row align-items-center mb-7">
               <div className="col-12 col-md">
                 {/* Heading */}
-                <h3 className="mb-1">Womens' Clothing</h3>
+                <h3 className="mb-1">{t("Womens' Clothing")}</h3>
                 {/* Breadcrumb */}
                 <ol className="breadcrumb mb-md-0 font-size-xs text-gray-400">
                   <li className="breadcrumb-item">
                     <a className="text-gray-400" href="index.html">
-                      Home
+                      {t("Home")}
                     </a>
                   </li>
-                  <li className="breadcrumb-item active">Women's Clothing</li>
+                  <li className="breadcrumb-item active">
+                    {t("Women's Clothing")}
+                  </li>
                 </ol>
               </div>
               <div className="col-12 col-md-auto">
                 {/* Select */}
                 <select className="custom-select custom-select-xs">
-                  <option selected>Most popular</option>
+                  <option selected>{t("Most popular")}</option>
                 </select>
               </div>
             </div>
@@ -1342,13 +1351,13 @@ export function ContentShop() {
             <div className="row mb-7">
               <div className="col-12">
                 <span className="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                  Shift dresses{" "}
+                  {t("Shift dresses")}{" "}
                   <a className="text-reset ml-2" href="#!" role="button">
                     <i className="fe fe-x" />
                   </a>
                 </span>
                 <span className="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                  Summer{" "}
+                  {t("Summer")}{" "}
                   <a className="text-reset ml-2" href="#!" role="button">
                     <i className="fe fe-x" />
                   </a>
@@ -1360,19 +1369,19 @@ export function ContentShop() {
                   </a>
                 </span>
                 <span className="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                  White{" "}
+                  {t("White")}{" "}
                   <a className="text-reset ml-2" href="#!" role="button">
                     <i className="fe fe-x" />
                   </a>
                 </span>
                 <span className="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                  Red{" "}
+                  {t("Red")}{" "}
                   <a className="text-reset ml-2" href="#!" role="button">
                     <i className="fe fe-x" />
                   </a>
                 </span>
                 <span className="btn btn-xs btn-light font-weight-normal text-muted mr-3 mb-3">
-                  Adidas{" "}
+                  {t("Adidas")}{" "}
                   <a className="text-reset ml-2" href="#!" role="button">
                     <i className="fe fe-x" />
                   </a>

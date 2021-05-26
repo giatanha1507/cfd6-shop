@@ -1,6 +1,8 @@
 import React from "react";
+import useTranslate from "../../../../../core/hook/useTranslate";
 
 export function WishListItem() {
+  let { t } = useTranslate();
   return (
     <div className="col-6 col-md-4">
       <div className="card mb-7">
@@ -16,7 +18,7 @@ export function WishListItem() {
             data-toggle="modal"
             data-target="#modalProduct"
           >
-            <i className="fe fe-eye mr-2 mb-1" /> Quick View
+            <i className="fe fe-eye mr-2 mb-1" /> {t("Quick View")}
           </button>
           {/* Image */}
           <img
@@ -28,7 +30,7 @@ export function WishListItem() {
         {/* Body */}
         <div className="card-body font-weight-bold text-center">
           <a className="text-body" href="product.html">
-            Another fine dress
+            {t("Another fine dress")}
           </a>{" "}
           <br />
           <span className="text-muted">$99.00</span>

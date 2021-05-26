@@ -1,13 +1,15 @@
 import React from "react";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function HeaderLocator() {
+  let { t } = useTranslate();
   return (
     <section className="pt-7 pb-12">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10 col-lg-8 col-xl-6">
             {/* Heading */}
-            <h3 className="mb-10 text-center">Store Locator</h3>
+            <h3 className="mb-10 text-center">{t("Store Locator")}</h3>
             {/* Search */}
             <div className="input-group input-group-merge">
               <input

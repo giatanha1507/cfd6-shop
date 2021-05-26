@@ -1,6 +1,9 @@
 import React from "react";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function MapLocator() {
+  let { t } = useTranslate();
+
   return (
     <section className="py-12 bg-light">
       <div className="container">
@@ -13,59 +16,62 @@ export function MapLocator() {
             >
               <div className="card-body">
                 {/* Heading */}
-                <p className="font-weight-bold">Baldwin Hills Crenshaw Plaza</p>
+                <p className="font-weight-bold">
+                  {t("Baldwin Hills Crenshaw Plaz")}a
+                </p>
                 <p className="text-gray-500">
-                  Mönckebergstrasse 11 20095 Hamburg, Germany
+                  {t("Mönckebergstrasse 11 20095 Hamburg, Germany")}
                 </p>
                 <p>
-                  <strong>Phone:</strong> <br />
+                  <strong>{t("Phone:")}</strong> <br />
                   <a className="text-gray-500" href="tel:6-146-389-574">
                     6-146-389-574
                   </a>
                 </p>
                 <p className="mb-0">
-                  <strong>Store Hours:</strong> <br />
+                  <strong>{t("Store Hours:")}</strong> <br />
                   <span className="text-gray-500">
-                    10 am - 10 pm EST, 7 days a week
+                    {t("10 am - 10 pm EST, 7 days a week")}
                   </span>
                 </p>
               </div>
               <div className="card-body border-top">
                 {/* Heading */}
-                <p className="font-weight-bold">Stonewood Center</p>
+                <p className="font-weight-bold">{t("Stonewood Center")}</p>
                 <p className="text-gray-500">
-                  Largo Corsia Dei Servi 3 20122 Milan, Italy
+                  {t("Largo Corsia Dei Servi 3 20122 Milan, Italy")}
                 </p>
                 <p>
-                  <strong>Phone:</strong> <br />
+                  <strong>{t("Phone:")}</strong> <br />
                   <a className="text-gray-500" href="tel:6-146-389-574">
                     6-146-389-574
                   </a>
                 </p>
                 <p className="mb-0">
-                  <strong>Store Hours:</strong> <br />
+                  <strong>{t("Store Hours:")}</strong> <br />
                   <span className="text-gray-500">
-                    10 am - 10 pm EST, 7 days a week
+                    {t("10 am - 10 pm EST, 7 days a week")}
                   </span>
                 </p>
               </div>
               <div className="card-body border-top">
                 {/* Heading */}
-                <p className="font-weight-bold">Shalyapin Palace</p>
+                <p className="font-weight-bold">{t("Shalyapin Palace")}</p>
                 <p className="text-gray-500">
-                  Block 5, 5th Floor, Harcourt Centre, Harcourt Road Dublin,
-                  Ireland
+                  {t(
+                    " Block 5, 5th Floor, Harcourt Centre, Harcourt Road Dublin, Ireland"
+                  )}
                 </p>
                 <p>
-                  <strong>Phone:</strong> <br />
+                  <strong>{t("Phone")}:</strong> <br />
                   <a className="text-gray-500" href="tel:6-146-389-574">
                     6-146-389-574
                   </a>
                 </p>
                 <p className="mb-0">
-                  <strong>Store Hours:</strong> <br />
+                  <strong>{t("Store Hours")}:</strong> <br />
                   <span className="text-gray-500">
-                    10 am - 10 pm EST, 7 days a week
+                    {t("10 am - 10 pm EST, 7 days a week")}
                   </span>
                 </p>
               </div>

@@ -1,7 +1,10 @@
 import React from "react";
+import useTranslate from "../../../../core/hook/useTranslate";
 import { ProductOrder } from "./component";
 
 export function OrderDetails() {
+  let { t } = useTranslate();
+
   return (
     <div className="col-12 col-md-9 col-lg-8 offset-lg-1">
       {/* Order */}
@@ -13,7 +16,7 @@ export function OrderDetails() {
               <div className="row">
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Order No:</h6>
+                  <h6 className="heading-xxxs text-muted">{t("Order No")}:</h6>
                   {/* Text */}
                   <p className="mb-lg-0 font-size-sm font-weight-bold">
                     673290789
@@ -21,7 +24,9 @@ export function OrderDetails() {
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Shipped date:</h6>
+                  <h6 className="heading-xxxs text-muted">
+                    {t("Shipped date")}:
+                  </h6>
                   {/* Text */}
                   <p className="mb-lg-0 font-size-sm font-weight-bold">
                     <time dateTime="2019-10-01">01 Oct, 2019</time>
@@ -29,15 +34,17 @@ export function OrderDetails() {
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Status:</h6>
+                  <h6 className="heading-xxxs text-muted">{t("Status")}:</h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm font-weight-bold">
-                    Awating Delivery
+                    {t("Awating Delivery")}
                   </p>
                 </div>
                 <div className="col-6 col-lg-3">
                   {/* Heading */}
-                  <h6 className="heading-xxxs text-muted">Order Amount:</h6>
+                  <h6 className="heading-xxxs text-muted">
+                    {t("Order Amount")}:
+                  </h6>
                   {/* Text */}
                   <p className="mb-0 font-size-sm font-weight-bold">$259.00</p>
                 </div>
@@ -47,7 +54,7 @@ export function OrderDetails() {
         </div>
         <div className="card-footer">
           {/* Heading */}
-          <h6 className="mb-7">Order Items (3)</h6>
+          <h6 className="mb-7">{t("Order Items")} (3)</h6>
           {/* Divider */}
           <hr className="my-5" />
           {/* List group */}
@@ -64,23 +71,23 @@ export function OrderDetails() {
       <div className="card card-lg mb-5 border">
         <div className="card-body">
           {/* Heading */}
-          <h6 className="mb-7">Order Total</h6>
+          <h6 className="mb-7">{t("Order Tota")}l</h6>
           {/* List group */}
           <ul className="list-group list-group-sm list-group-flush-y list-group-flush-x">
             <li className="list-group-item d-flex">
-              <span>Subtotal</span>
+              <span>{t("Subtotal")}</span>
               <span className="ml-auto">$128.00</span>
             </li>
             <li className="list-group-item d-flex">
-              <span>Tax</span>
+              <span>{t("Tax")}</span>
               <span className="ml-auto">$0.00</span>
             </li>
             <li className="list-group-item d-flex">
-              <span>Shipping</span>
+              <span>{t("Shipping")}</span>
               <span className="ml-auto">$8.00</span>
             </li>
             <li className="list-group-item d-flex font-size-lg font-weight-bold">
-              <span>Total</span>
+              <span>{t("Total")}</span>
               <span className="ml-auto">$136.00</span>
             </li>
           </ul>
@@ -90,12 +97,12 @@ export function OrderDetails() {
       <div className="card card-lg border">
         <div className="card-body">
           {/* Heading */}
-          <h6 className="mb-7">Billing &amp; Shipping Details</h6>
+          <h6 className="mb-7">{t("Billing &amp; Shipping Details")}</h6>
           {/* Content */}
           <div className="row">
             <div className="col-12 col-md-4">
               {/* Heading */}
-              <p className="mb-4 font-weight-bold">Billing Address:</p>
+              <p className="mb-4 font-weight-bold">{t("Billing Address")}:</p>
               <p className="mb-7 mb-md-0 text-gray-500">
                 Daniel Robinson, <br />
                 3997 Raccoon Run, <br />
@@ -106,7 +113,7 @@ export function OrderDetails() {
             </div>
             <div className="col-12 col-md-4">
               {/* Heading */}
-              <p className="mb-4 font-weight-bold">Shipping Address:</p>
+              <p className="mb-4 font-weight-bold">{t("Shipping Address")}:</p>
               <p className="mb-7 mb-md-0 text-gray-500">
                 Daniel Robinson, <br />
                 3997 Raccoon Run, <br />
@@ -117,14 +124,14 @@ export function OrderDetails() {
             </div>
             <div className="col-12 col-md-4">
               {/* Heading */}
-              <p className="mb-4 font-weight-bold">Shipping Method:</p>
+              <p className="mb-4 font-weight-bold">{t("Shipping Method")}:</p>
               <p className="mb-7 text-gray-500">
-                Standart Shipping <br />
-                (5 - 7 days)
+                {t(" Standart Shipping")} <br />
+                {t("(5 - 7 days)")}
               </p>
               {/* Heading */}
-              <p className="mb-4 font-weight-bold">Payment Method:</p>
-              <p className="mb-0 text-gray-500">Debit Mastercard</p>
+              <p className="mb-4 font-weight-bold">{t("Payment Method")}:</p>
+              <p className="mb-0 text-gray-500">{t("Debit Mastercard")}</p>
             </div>
           </div>
         </div>

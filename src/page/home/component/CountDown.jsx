@@ -1,6 +1,8 @@
 import React from "react";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function CountDown() {
+  let { t } = useTranslate();
   return (
     <section
       className="py-13 bg-cover"
@@ -11,8 +13,8 @@ export function CountDown() {
           <div className="col-12 col-md-8 col-lg-6">
             {/* Heading */}
             <h3 className="mb-7">
-              Get -50% from <br />
-              Summer Collection
+              {t("Get -50% from")} <br />
+              {t("Summer Collection")}
             </h3>
             {/* Counter */}
             <div
@@ -27,7 +29,7 @@ export function CountDown() {
                 >
                   0-140
                 </div>
-                <div className="heading-xxs text-muted">Days</div>
+                <div className="heading-xxs text-muted">{t("Days")}</div>
               </div>
               <div className="px-1 px-md-4">
                 <div className="font-size-h2 font-weight-bolder text-primary">
@@ -41,7 +43,7 @@ export function CountDown() {
                 >
                   0-6
                 </div>
-                <div className="heading-xxs text-muted">Hours</div>
+                <div className="heading-xxs text-muted">{t("Hours")}</div>
               </div>
               <div className="px-1 px-md-4">
                 <div className="font-size-h2 font-weight-bolder text-primary">
@@ -55,7 +57,7 @@ export function CountDown() {
                 >
                   0-24
                 </div>
-                <div className="heading-xxs text-muted">Minutes</div>
+                <div className="heading-xxs text-muted">{t("Minutes")}</div>
               </div>
               <div className="px-1 px-md-4">
                 <div className="font-size-h2 font-weight-bolder text-primary">
@@ -69,12 +71,12 @@ export function CountDown() {
                 >
                   0-49
                 </div>
-                <div className="heading-xxs text-muted">Seconds</div>
+                <div className="heading-xxs text-muted">{t("Seconds")}</div>
               </div>
             </div>
             {/* Button */}
             <a className="btn btn-dark" href="shop.html">
-              Shop Now <i className="fe fe-arrow-right ml-2" />
+              {t("Shop Now")} <i className="fe fe-arrow-right ml-2" />
             </a>
           </div>
         </div>

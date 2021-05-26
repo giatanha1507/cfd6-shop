@@ -1,16 +1,18 @@
 import React from "react";
+import useTranslate from "../../../../core/hook/useTranslate";
 
 export function AddressAC() {
+  let { t } = useTranslate();
   return (
     <div className="col-12 col-md-9 col-lg-8 offset-lg-1">
       {/* Heading */}
-      <h6 className="mb-7">Add Address</h6>
+      <h6 className="mb-7">{t("Add Address")}</h6>
       {/* Form */}
       <form>
         <div className="row">
           <div className="col-12 col-md-6">
             <div className="form-group">
-              <label htmlFor="firstName">First Name *</label>
+              <label htmlFor="firstName">{t("First Name")} *</label>
               <input
                 className="form-control"
                 id="firstName"
@@ -22,7 +24,7 @@ export function AddressAC() {
           </div>
           <div className="col-12 col-md-6">
             <div className="form-group">
-              <label htmlFor="lastName">Last Name *</label>
+              <label htmlFor="lastName">{t("Last Name")} *</label>
               <input
                 className="form-control"
                 id="lastName"
@@ -34,7 +36,7 @@ export function AddressAC() {
           </div>
           <div className="col-12">
             <div className="form-group">
-              <label htmlFor="emailAddress">Email Address *</label>
+              <label htmlFor="emailAddress">{t("Email Address")} *</label>
               <input
                 className="form-control"
                 id="emailAddress"
@@ -46,7 +48,7 @@ export function AddressAC() {
           </div>
           <div className="col-12">
             <div className="form-group">
-              <label htmlFor="companyName">Company Name</label>
+              <label htmlFor="companyName"> {t("Company Name")}</label>
               <input
                 className="form-control"
                 id="companyName"
@@ -58,7 +60,7 @@ export function AddressAC() {
           </div>
           <div className="col-12">
             <div className="form-group">
-              <label htmlFor="country">Country *</label>
+              <label htmlFor="country">{t("Country")} *</label>
               <input
                 className="form-control"
                 id="country"
@@ -70,7 +72,7 @@ export function AddressAC() {
           </div>
           <div className="col-12">
             <div className="form-group">
-              <label htmlFor="addressLineOne">Address Line 1 *</label>
+              <label htmlFor="addressLineOne">{t("Address Line")} 1 *</label>
               <input
                 className="form-control"
                 id="addressLineOne"
@@ -82,7 +84,7 @@ export function AddressAC() {
           </div>
           <div className="col-12">
             <div className="form-group">
-              <label htmlFor="addressLineTwo">Address Line 2</label>
+              <label htmlFor="addressLineTwo">{t("Address Line")} 2</label>
               <input
                 className="form-control"
                 id="addressLineTwo"
@@ -94,7 +96,7 @@ export function AddressAC() {
           </div>
           <div className="col-12 col-md-6">
             <div className="form-group">
-              <label htmlFor="townCity">Town / City *</label>
+              <label htmlFor="townCity">{t("Town / City")} *</label>
               <input
                 className="form-control"
                 id="townCity"
@@ -106,7 +108,7 @@ export function AddressAC() {
           </div>
           <div className="col-12 col-md-6">
             <div className="form-group">
-              <label htmlFor="zipPostcode">ZIP / Postcode *</label>
+              <label htmlFor="zipPostcode">{t("ZIP / Postcode")} *</label>
               <input
                 className="form-control"
                 id="zipPostcode"
@@ -118,7 +120,7 @@ export function AddressAC() {
           </div>
           <div className="col-12">
             <div className="form-group">
-              <label htmlFor="mobilePhone">Mobile Phone *</label>
+              <label htmlFor="mobilePhone">{t("Mobile Phone")} *</label>
               <input
                 className="form-control"
                 id="mobilePhone"
@@ -140,7 +142,7 @@ export function AddressAC() {
                   className="custom-control-label"
                   htmlFor="defaultDeliveryAddress"
                 >
-                  Default delivery address
+                  {t(" Default delivery address")}
                 </label>
               </div>
               <div className="custom-control custom-checkbox mb-0">
@@ -153,7 +155,7 @@ export function AddressAC() {
                   className="custom-control-label"
                   htmlFor="defaultShippingAddress"
                 >
-                  Default shipping address
+                  {t("Default shipping address")}
                 </label>
               </div>
             </div>
@@ -161,7 +163,7 @@ export function AddressAC() {
         </div>
         {/* Button */}
         <button className="btn btn-dark" type="submit">
-          Add Address
+          {t(" Add Address")}
         </button>
       </form>
     </div>

@@ -1,6 +1,8 @@
 import React from "react";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function Features() {
+  let{t}= useTranslate();
   return (
     <section className="pt-7">
       <div className="container">
@@ -13,10 +15,10 @@ export function Features() {
               {/* Body */}
               <div className="ml-6">
                 {/* Heading */}
-                <h6 className="heading-xxs mb-1">Free shipping</h6>
+                <h6 className="heading-xxs mb-1">{t("Free shipping")}</h6>
                 {/* Text */}
                 <p className="mb-0 font-size-sm text-muted">
-                  From all orders over $100
+                  {t(" From all orders over $100")}
                 </p>
               </div>
             </div>
@@ -29,10 +31,10 @@ export function Features() {
               {/* Body */}
               <div className="ml-6">
                 {/* Heading */}
-                <h6 className="mb-1 heading-xxs">Free returns</h6>
+                <h6 className="mb-1 heading-xxs">{t("Free returns")}</h6>
                 {/* Text */}
                 <p className="mb-0 font-size-sm text-muted">
-                  Return money within 30 days
+                  {t("Return money within 30 days")}
                 </p>
               </div>
             </div>
@@ -45,10 +47,10 @@ export function Features() {
               {/* Body */}
               <div className="ml-6">
                 {/* Heading */}
-                <h6 className="mb-1 heading-xxs">Secure shopping</h6>
+                <h6 className="mb-1 heading-xxs">{t("Secure shopping")}</h6>
                 {/* Text */}
                 <p className="mb-0 font-size-sm text-muted">
-                  You're in safe hands
+                  {t("You're in safe hands")}
                 </p>
               </div>
             </div>
@@ -61,10 +63,10 @@ export function Features() {
               {/* Body */}
               <div className="ml-6">
                 {/* Heading */}
-                <h6 className="mb-1 heading-xxs">Over 10,000 Styles</h6>
+                <h6 className="mb-1 heading-xxs">{t("Over 10,000 Styles")}</h6>
                 {/* Text */}
                 <p className="mb-0 font-size-sm text-muted">
-                  We have everything you need
+                  {t("We have everything you need")}
                 </p>
               </div>
             </div>

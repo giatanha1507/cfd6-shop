@@ -1,14 +1,16 @@
 import React from "react";
 import { ProductItem } from "../../../component";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function TopSellers() {
+  let {t} =useTranslate();
   return (
     <section className="py-12">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10 col-lg-8 col-xl-6">
             {/* Heading */}
-            <h2 className="mb-4 text-center">Top month Sellers</h2>
+            <h2 className="mb-4 text-center">{t("Top month Sellers")}</h2>
             {/* Nav */}
             <div className="nav justify-content-center mb-10">
               <a
@@ -16,13 +18,13 @@ export function TopSellers() {
                 href="#topSellersTab"
                 data-toggle="tab"
               >
-                Women
+                {t(" Women")}
               </a>
               <a className="nav-link" href="#topSellersTab" data-toggle="tab">
-                Men
+                {t(" Men")}
               </a>
               <a className="nav-link" href="#topSellersTab" data-toggle="tab">
-                Kids
+                {t("Kids")}
               </a>
             </div>
           </div>
@@ -46,7 +48,7 @@ export function TopSellers() {
             {/* Link  */}
             <div className="mt-7 text-center">
               <a className="link-underline" href="#!">
-                Discover more
+                {t("Discover more")}
               </a>
             </div>
           </div>

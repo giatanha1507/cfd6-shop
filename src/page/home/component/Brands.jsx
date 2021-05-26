@@ -1,6 +1,9 @@
 import React from "react";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function Brands() {
+  let { t } = useTranslate();
+
   return (
     <section className="py-12 bg-light">
       <div className="container">
@@ -10,7 +13,7 @@ export function Brands() {
             <h2 className="mb-3">@shopper</h2>
             {/* Subheading */}
             <p className="mb-10 font-size-lg text-gray-500">
-              Appear, dry there darkness they're seas, dry waters.
+              {t("Appear, dry there darkness they're seas, dry waters.")}
             </p>
           </div>
         </div>

@@ -1,6 +1,8 @@
 import React from "react";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function DescriptionProduct() {
+  let{t}=useTranslate();
   return (
     <section className="pt-11">
       <div className="container">
@@ -13,13 +15,13 @@ export function DescriptionProduct() {
                 data-toggle="tab"
                 href="#descriptionTab"
               >
-                Description
+                {t(" Description")}
               </a>
               <a className="nav-link" data-toggle="tab" href="#sizeTab">
-                Size &amp; Fit
+                {t("     Size &amp; Fit")}
               </a>
               <a className="nav-link" data-toggle="tab" href="#shippingTab">
-                Shipping &amp; Return
+                {t("  Shipping &amp; Return")}
               </a>
             </div>
             {/* Content */}
@@ -31,12 +33,9 @@ export function DescriptionProduct() {
                       <div className="col-12">
                         {/* Text */}
                         <p className="text-gray-500">
-                          Won't herb first male seas, beast. Let upon, female
-                          upon third fifth every. Man subdue rule after years
-                          herb after form. And image may, morning. Behold in
-                          tree day sea that together cattle whose. Fifth
-                          gathering brought bearing. Abundantly creeping whose.
-                          Beginning form have void two. A whose.
+                          {t(
+                            " Won't herb first male seas, beast. Let upon, female upon third fifth every. Man subdue rule after years herb after form. And image may, morning. Behold in tree day sea that together cattle whose. Fifth gathering brought bearing. Abundantly creeping whose. Beginning form have void two. A whose."
+                          )}
                         </p>
                       </div>
                       <div className="col-12 col-md-6">
@@ -47,12 +46,16 @@ export function DescriptionProduct() {
                             #61590437
                           </li>
                           <li>
-                            <strong className="text-body">Occasion</strong>:
-                            Lifestyle, Sport
+                            <strong className="text-body">
+                              {t("Occasion")}
+                            </strong>
+                            {t(": Lifestyle, Sport")}
                           </li>
                           <li>
-                            <strong className="text-body">Country</strong>:
-                            Italy
+                            <strong className="text-body">
+                              {t("Country")}
+                            </strong>
+                            {t(": Italy")}
                           </li>
                         </ul>
                       </div>
@@ -60,13 +63,16 @@ export function DescriptionProduct() {
                         {/* List */}
                         <ul className="list list-unstyled mb-0">
                           <li>
-                            <strong>Outer</strong>: Leather 100%, Polyamide 100%
+                            <strong>{t("Outer")}</strong>:{" "}
+                            {t("Leather 100%, Polyamide 100%")}
                           </li>
                           <li>
-                            <strong>Lining</strong>: Polyester 100%
+                            <strong>{t("Lining")}</strong>:{" "}
+                            {t("Polyester 100%")}
                           </li>
                           <li>
-                            <strong>CounSoletry</strong>: Rubber 100%
+                            <strong>{t("CounSoletry")}</strong>:{" "}
+                            {t("Rubber 100%")}
                           </li>
                         </ul>
                       </div>
@@ -81,30 +87,33 @@ export function DescriptionProduct() {
                       <div className="col-12 col-md-6">
                         {/* Text */}
                         <p className="mb-4">
-                          <strong>Fitting information:</strong>
+                          <strong>{t("Fitting information:")}</strong>
                         </p>
                         {/* List */}
                         <ul className="mb-md-0 text-gray-500">
                           <li>
-                            Upon seas hath every years have whose subdue
-                            creeping they're it were.
+                            {t(
+                              "Upon seas hath every years have whose subdue creeping they're it were."
+                            )}
                           </li>
-                          <li>Make great day bearing.</li>
-                          <li>For the moveth is days don't said days.</li>
+                          <li>{t("Make great day bearing.")}</li>
+                          <li>
+                            {t("For the moveth is days don't said days.")}
+                          </li>
                         </ul>
                       </div>
                       <div className="col-12 col-md-6">
                         {/* Text */}
                         <p className="mb-4">
-                          <strong>Model measurements:</strong>
+                          <strong>{t("Model measurements:")}</strong>
                         </p>
                         {/* List */}
                         <ul className="list-unstyled text-gray-500">
-                          <li>Height: 1.80 m</li>
-                          <li>Bust/Chest: 89 cm</li>
-                          <li>Hips: 91 cm</li>
-                          <li>Waist: 65 cm</li>
-                          <li>Model size: M</li>
+                          <li>{t("Height: 1.80 m")}</li>
+                          <li>{t("Bust/Chest: 89 cm")}</li>
+                          <li>{t("Hips: 91 cm")}</li>
+                          <li>{t("Waist: 65 cm")}</li>
+                          <li>{t("Model size: M")}</li>
                         </ul>
                         {/* Size */}
                         <p className="mb-0">
@@ -118,7 +127,7 @@ export function DescriptionProduct() {
                             data-toggle="modal"
                             href="#modalSizeChart"
                           >
-                            Size chart
+                            {t(" Size chart")}
                           </a>
                         </p>
                       </div>
@@ -134,32 +143,33 @@ export function DescriptionProduct() {
                       <table className="table table-bordered table-sm table-hover">
                         <thead>
                           <tr>
-                            <th>Shipping Options</th>
-                            <th>Delivery Time</th>
-                            <th>Price</th>
+                            <th>{t("Shipping Options")}</th>
+                            <th>{t("Delivery Time")}</th>
+                            <th>{t("Price")}</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td>Standard Shipping</td>
-                            <td>Delivery in 5 - 7 working days</td>
+                            <td>{t("Standard Shipping")}</td>
+                            <td>{t("Delivery in 5 - 7 working days")}</td>
                             <td>$8.00</td>
                           </tr>
                           <tr>
-                            <td>Express Shipping</td>
-                            <td>Delivery in 3 - 5 working days</td>
+                            <td>{t("Express Shipping")}</td>
+                            <td>{t("Delivery in 3 - 5 working days")}</td>
                             <td>$12.00</td>
                           </tr>
                           <tr>
-                            <td>1 - 2 day Shipping</td>
-                            <td>Delivery in 1 - 2 working days</td>
+                            <td>{t("1 - 2 day Shipping")}</td>
+                            <td>{t("Delivery in 1 - 2 working days")}</td>
                             <td>$12.00</td>
                           </tr>
                           <tr>
-                            <td>Free Shipping</td>
+                            <td>{t("Free Shipping")}</td>
                             <td>
-                              Living won't the He one every subdue meat
-                              replenish face was you morning firmament darkness.
+                              {t(
+                                "Living won't the He one every subdue meat replenish face was you morning firmament darkness."
+                              )}
                             </td>
                             <td>$0.00</td>
                           </tr>
@@ -168,12 +178,14 @@ export function DescriptionProduct() {
                     </div>
                     {/* Caption */}
                     <p className="mb-0 text-gray-500">
-                      May, life blessed night so creature likeness their, for.{" "}
+                      {t(
+                        " May, life blessed night so creature likeness their, for."
+                      )}{" "}
                       <a
                         className="text-body text-decoration-underline"
                         href="#!"
                       >
-                        Find out more
+                        {t("Find out more")}
                       </a>
                     </p>
                   </div>

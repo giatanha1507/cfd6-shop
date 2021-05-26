@@ -1,6 +1,9 @@
 import React from "react";
+import useTranslate from "../../../core/hook/useTranslate";
 
 export function Categories() {
+  let { t } = useTranslate();
+
   return (
     <section>
       <div
@@ -18,12 +21,12 @@ export function Categories() {
           >
             <div className="card-body mt-auto mb-n11 py-8">
               {/* Heading */}
-              <h1 className="mb-0 font-weight-bolder">Women</h1>
+              <h1 className="mb-0 font-weight-bolder">{t("Women")}</h1>
             </div>
             <div className="card-body mt-auto py-8">
               {/* Button */}
               <a className="btn btn-white stretched-link" href="shop.html">
-                Shop Women <i className="fe fe-arrow-right ml-2" />
+                {t(" Shop Women")} <i className="fe fe-arrow-right ml-2" />
               </a>
             </div>
           </div>
@@ -39,12 +42,12 @@ export function Categories() {
           >
             <div className="card-body mt-auto mb-n11 py-8">
               {/* Heading */}
-              <h1 className="mb-0 font-weight-bolder">Men</h1>
+              <h1 className="mb-0 font-weight-bolder">{t("Men")}</h1>
             </div>
             <div className="card-body mt-auto py-8">
               {/* Button */}
               <a className="btn btn-white stretched-link" href="shop.html">
-                Shop Men <i className="fe fe-arrow-right ml-2" />
+                {t("Shop Men")} <i className="fe fe-arrow-right ml-2" />
               </a>
             </div>
           </div>
@@ -60,12 +63,12 @@ export function Categories() {
           >
             <div className="card-body mt-auto mb-n11 py-8">
               {/* Heading */}
-              <h1 className="mb-0 font-weight-bolder">Kids</h1>
+              <h1 className="mb-0 font-weight-bolder">{t("Kids")}</h1>
             </div>
             <div className="card-body mt-auto py-8">
               {/* Button */}
               <a className="btn btn-white stretched-link" href="shop.html">
-                Shop Kids <i className="fe fe-arrow-right ml-2" />
+                {t(" Shop Kids")} <i className="fe fe-arrow-right ml-2" />
               </a>
             </div>
           </div>

@@ -1,6 +1,9 @@
 import React from "react";
+import useTranslate from "../../../../core/hook/useTranslate";
 
 export function PaymentEdit() {
+  let { t } = useTranslate();
+
   return (
     <div className="col-12 col-md-9 col-lg-8 offset-lg-1">
       {/* Form */}
@@ -23,7 +26,7 @@ export function PaymentEdit() {
                 className="custom-control-label d-flex justify-content-between font-size-sm text-body text-nowrap"
                 htmlFor="checkoutPaymentCard"
               >
-                I want to add Debit / Credit Card{" "}
+                {t("I want to add Debit / Credit Card")}{" "}
                 <img
                   className="ml-2"
                   src="/img/brands/color/cards.svg"
@@ -50,7 +53,7 @@ export function PaymentEdit() {
                 className="custom-control-label d-flex justify-content-between font-size-sm text-body text-nowrap"
                 htmlFor="checkoutPaymentPaypal"
               >
-                I want to add PayPall{" "}
+                {t("I want to add PayPall")}{" "}
                 <img src="/img/brands/color/paypal.svg" alt="..." />
               </label>
             </div>
@@ -58,17 +61,17 @@ export function PaymentEdit() {
         </div>
         {/* Button */}
         <button className="btn btn-dark" type="submit">
-          Continue <i className="fe fe-arrow-right ml-2" />
+          {t("Continue")} <i className="fe fe-arrow-right ml-2" />
         </button>
       </form>
       {/* Heading */}
-      <h6 className="mb-7">Add Debit / Credit Card</h6>
+      <h6 className="mb-7">{t("Add Debit / Credit Card")}</h6>
       {/* Form */}
       <form>
         <div className="row">
           <div className="col-12 col-md-6">
             <div className="form-group">
-              <label htmlFor="cardNumber">Card Number *</label>
+              <label htmlFor="cardNumber">{t("Card Number")} *</label>
               <input
                 className="form-control"
                 id="cardNumber"
@@ -80,7 +83,7 @@ export function PaymentEdit() {
           </div>
           <div className="col-12 col-md-6">
             <div className="form-group">
-              <label htmlFor="nameOnCard">Name on Card *</label>
+              <label htmlFor="nameOnCard">{t("Name on Card")} *</label>
               <input
                 className="form-control"
                 id="nameOnCard"
@@ -92,16 +95,16 @@ export function PaymentEdit() {
           </div>
           <div className="col-12">
             {/* Label */}
-            <label>Expiry Date *</label>
+            <label>{t("Expiry Date")} *</label>
           </div>
           <div className="col-12 col-md-4">
             <div className="form-group">
               <label className="sr-only" htmlFor="paymentMonth">
-                Month
+                {t("Month")}
               </label>
               <select className="custom-select" id="paymentMonth" required>
                 <option selected disabled value>
-                  Month *
+                  {t("Month")} *
                 </option>
                 <option>January</option>
                 <option>February</option>
@@ -112,11 +115,11 @@ export function PaymentEdit() {
           <div className="col-12 col-md-4">
             <div className="form-group">
               <label className="sr-only" htmlFor="paymentCardYear">
-                Year
+                {t("Year")}
               </label>
               <select className="custom-select" id="paymentCardYear" required>
                 <option selected disabled value>
-                  Year *
+                  {t("Year")} *
                 </option>
                 <option>2017</option>
                 <option>2018</option>
@@ -162,7 +165,7 @@ export function PaymentEdit() {
                   className="custom-control-label"
                   htmlFor="defaultPaymentMethod"
                 >
-                  Default payment method
+                  {t("Default payment method")}
                 </label>
               </div>
             </div>
@@ -170,7 +173,7 @@ export function PaymentEdit() {
         </div>
         {/* Button */}
         <button className="btn btn-dark" type="submit">
-          Add Card
+          {t("Add Card")}
         </button>
       </form>
     </div>

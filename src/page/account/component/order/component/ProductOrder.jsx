@@ -1,6 +1,8 @@
 import React from "react";
+import useTranslate from "../../../../../core/hook/useTranslate";
 
 export function ProductOrder() {
+  let { t } = useTranslate();
   return (
     <li className="list-group-item">
       <div className="row align-items-center">
@@ -18,15 +20,15 @@ export function ProductOrder() {
           {/* Title */}
           <p className="mb-4 font-size-sm font-weight-bold">
             <a className="text-body" href="product.html">
-              Sweatshirt with Pocket
+              {t("Sweatshirt with Pocket")}
             </a>{" "}
             <br />
             <span className="text-muted">$39.00</span>
           </p>
           {/* Text */}
           <div className="font-size-sm text-muted">
-            Size: L <br />
-            Color: Pink
+            {t("Size")}: L <br />
+            {t("Color: Pink")}
           </div>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import React from 'react'
+import useTranslate from '../../../core/hook/useTranslate';
 
 export  function ProductTop() {
+  let{t}=useTranslate();
     return (
       <section>
         <div className="container">
@@ -12,7 +14,7 @@ export  function ProductTop() {
                   <div className="card">
                     {/* Badge */}
                     <div className="badge badge-primary card-badge text-uppercase">
-                      Sale
+                      {t(" Sale")}
                     </div>
                     {/* Slider */}
                     <div
@@ -89,7 +91,7 @@ export  function ProductTop() {
                     <div className="col">
                       {/* Preheading */}
                       <a className="text-muted" href="shop.html">
-                        Sneakers
+                        {t("Sneakers")}
                       </a>
                     </div>
                     <div className="col-auto">
@@ -118,12 +120,12 @@ export  function ProductTop() {
                         className="font-size-sm text-reset ml-2"
                         href="#reviews"
                       >
-                        Reviews (6)
+                        {t(" Reviews (6)")}
                       </a>
                     </div>
                   </div>
                   {/* Heading */}
-                  <h3 className="mb-2">Leather Sneakers</h3>
+                  <h3 className="mb-2">{t("Leather Sneakers")}</h3>
                   {/* Price */}
                   <div className="mb-7">
                     <span className="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through">
@@ -132,14 +134,15 @@ export  function ProductTop() {
                     <span className="ml-1 font-size-h5 font-weight-bolder text-primary">
                       $85.00
                     </span>
-                    <span className="font-size-sm ml-1">(In Stock)</span>
+                    <span className="font-size-sm ml-1">{t("(In Stock)")}</span>
                   </div>
                   {/* Form */}
                   <form>
                     <div className="form-group">
                       {/* Label */}
                       <p className="mb-5">
-                        Color: <strong id="colorCaption">White</strong>
+                        {t(" Color:")}{" "}
+                        <strong id="colorCaption">{t("White")}</strong>
                       </p>
                       {/* Radio */}
                       <div className="mb-8 ml-n1">
@@ -457,7 +460,7 @@ export  function ProductTop() {
                           data-toggle="modal"
                           href="#modalSizeChart"
                         >
-                          Size chart
+                          {t("Size chart")}
                         </a>
                       </p>
                       <div className="form-row mb-7">
@@ -479,7 +482,7 @@ export  function ProductTop() {
                             type="submit"
                             className="btn btn-block btn-dark mb-2"
                           >
-                            Add to Cart{" "}
+                            {t("Add to Cart")}{" "}
                             <i className="fe fe-shopping-cart ml-2" />
                           </button>
                         </div>
@@ -489,26 +492,26 @@ export  function ProductTop() {
                             className="btn btn-outline-dark btn-block mb-2"
                             data-toggle="button"
                           >
-                            Wishlist <i className="fe fe-heart ml-2" />
+                            {t(" Wishlist")} <i className="fe fe-heart ml-2" />
                           </button>
                         </div>
                       </div>
                       {/* Text */}
                       <p>
                         <span className="text-gray-500">
-                          Is your size/color sold out?
+                          {t("Is your size/color sold out?")}
                         </span>
                         <a
                           className="text-reset text-decoration-underline"
                           data-toggle="modal"
                           href="#modalWaitList"
                         >
-                          Join the Wait List!
+                          {t(" Join the Wait List!")}
                         </a>
                       </p>
                       {/* Share */}
                       <p className="mb-0">
-                        <span className="mr-4">Share:</span>
+                        <span className="mr-4">{t("Share:")}</span>
                         <a
                           className="btn btn-xxs btn-circle btn-light font-size-xxxs text-gray-350"
                           href="#!"
