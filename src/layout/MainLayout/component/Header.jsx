@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import useTranslate from "../../../core/hook/useTranslate";
 
 export function Header() {
   let { t } = useTranslate();
-
+  let { login } = useSelector((store) => store.auth);
   return (
     <>
       <div className="navbar navbar-topbar navbar-expand-xl navbar-light bg-light">
@@ -161,9 +163,9 @@ export function Header() {
       <nav className="navbar navbar-expand-lg navbar-light bg-white">
         <div className="container">
           {/* Brand */}
-          <a className="navbar-brand" href="./overview.html">
+          <Link to="/" className="navbar-brand">
             Shopper.
-          </a>
+          </Link>
           {/* Toggler */}
           <button
             className="navbar-toggler"
@@ -609,9 +611,13 @@ export function Header() {
                 </a>
               </li>
               <li className="nav-item ml-lg-n4">
-                <a className="nav-link" href="./account-orders.html">
-                  <i className="fe fe-user" />
-                </a>
+                <Link to="/auth" className="nav-link">
+                  {login ? (
+                    <i class="fas fa-info"></i>
+                  ) : (
+                    <i className="fe fe-user" />
+                  )}
+                </Link>
               </li>
               <li className="nav-item ml-lg-n4">
                 <a className="nav-link" href="./account-wishlist.html">

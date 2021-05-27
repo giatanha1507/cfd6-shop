@@ -20,6 +20,7 @@ import {
   Account,
 } from "./page";
 import "./asset/css/custom.css";
+import PrivateRouter from "./core/PrivateRouter";
 function App() {
   return (
     <Provider store={store}>
@@ -38,7 +39,7 @@ function App() {
             <Route path="/store-locator" component={StoreLocator} />
             <Route path="/shop" component={Shop} />
             <Route path="/shopping-cart" component={ShoppingCart} />
-            <Route path="/account" component={Account} />
+            <PrivateRouter path="/account" component={Account} />
             <Route
               path="/shipping-and-returns"
               component={ShippingAndReturns}

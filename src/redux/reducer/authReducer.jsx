@@ -7,7 +7,6 @@ let init = {
 };
 
 export default function authReducer(state = init, action) {
-  // console.log(`action.type`, action.type);
   switch (action.type) {
     case LOGIN:
       localStorage.setItem("login", true);
@@ -35,7 +34,6 @@ export default function authReducer(state = init, action) {
     case REGISTER:
       return {
         ...state,
-        // data: action.payload,
       };
     case ERROR:
       return {

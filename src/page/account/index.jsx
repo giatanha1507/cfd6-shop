@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, Switch, useRouteMatch } from "react-router";
+import { useSelector } from "react-redux";
+import { Redirect, Route, Switch, useRouteMatch } from "react-router";
 import {
   AddressAC,
   AddressList,
@@ -15,7 +16,11 @@ import {
 
 export function Account() {
   let { path } = useRouteMatch();
-  console.log(`path`, path);
+  let { login } = useSelector((store) => store.auth);
+
+  if (!login) {
+    return <Redirect to="/auth" />;
+  }
   return (
     <section className="pt-7 pb-12">
       <div className="container">

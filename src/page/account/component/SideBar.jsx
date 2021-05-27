@@ -1,11 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useRouteMatch } from "react-router";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useTranslate from "../../../core/hook/useTranslate";
+import { handleLogout } from "../../../redux/action/authAction";
 
 export function SideBar() {
   let { path } = useRouteMatch();
   let { t } = useTranslate();
+  let dispatch = useDispatch();
+  function onLogout(e) {
+    e.preventDefault();
+    dispatch(handleLogout());
+  }
   return (
     <div className="col-12 col-md-3">
       {/* Nav */}
@@ -35,7 +42,7 @@ export function SideBar() {
           </NavLink>
           <NavLink
             to={`${path}/address`}
-            className="list-group-item list-group-item-action dropright-toggle active"
+            className="list-group-item list-group-item-action dropright-toggle"
             href="account-address.html"
           >
             {t("Addresses")}
@@ -47,12 +54,13 @@ export function SideBar() {
           >
             {t(" Payment Methods")}
           </NavLink>
-          <a
+          <Link
+            to="/auth"
+            onClick={onLogout}
             className="list-group-item list-group-item-action dropright-toggle"
-            href="#!"
           >
             {t("  Logout")}
-          </a>
+          </Link>
         </div>
       </nav>
     </div>

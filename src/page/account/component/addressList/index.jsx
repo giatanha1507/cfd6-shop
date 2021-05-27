@@ -7,7 +7,6 @@ import { AddressItem } from "./component";
 export function AddressList() {
   let { path } = useRouteMatch();
   let { t } = useTranslate();
-  console.log(`path`, path);
   return (
     <div className="col-12 col-md-9 col-lg-8 offset-lg-1">
       <div className="row">
