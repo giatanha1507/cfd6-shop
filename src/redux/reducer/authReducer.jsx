@@ -3,7 +3,10 @@ import { LOGIN, LOGOUT, UPDATE, REGISTER, ERROR } from "../type";
 let init = {
   login: JSON.parse(localStorage.getItem("login")) || false,
   data: JSON.parse(localStorage.getItem("data")) || {},
-  loginErr: "",
+  error:{
+    loginErr:""
+    // registerErr:""
+  }
 };
 
 export default function authReducer(state = init, action) {

@@ -1,10 +1,10 @@
 import authApi from "../../service/authApi";
-import { ERROR, LOGIN, LOGOUT } from "../type";
+import { ERROR, LOGIN, LOGOUT, REGISTER } from "../type";
 
 export function handleLogin(form) {
   return async (dispatch) => {
     let res = await authApi.login(form);
-    console.log(`res`, res);
+    // console.log(`res`, res);
     if (res?.data) {
       dispatch({
         type: LOGIN,
@@ -22,5 +22,22 @@ export function handleLogin(form) {
 export function handleLogout() {
   return {
     type: LOGOUT,
+  };
+}
+
+export function handleRegister(form) {
+  return async (dispatch) => {
+    let res = await authApi.register(form);
+    if (res?.data) {
+      dispatch({
+        type: REGISTER,
+        payload: res.data,
+      });
+    } else if (res.error) {
+      dispatch({
+        type: ERROR,
+        payload: res.error,
+      });
+    }
   };
 }

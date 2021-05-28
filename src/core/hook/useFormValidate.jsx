@@ -67,17 +67,19 @@ export default function useFormValidate(initialForm, validate) {
       if (r.min) {
         if (Object.keys(form[i]).length < r.min) {
           err[i] = `Khong duoc nho hon ${r.min} ki tu`;
+          continue;
         }
       }
       if (r.max) {
         if (Object.keys(form[i]).length > r.max) {
           err[i] = `Khong duoc lon hon ${r.max} ki tu`;
+          continue;
         }
       }
       if (r.check) {
         checkPassword = form[i];
       }
-      if (r.re_password) {
+      if (r.confirm_password) {
         // console.log(`form[i]`, form[i]);
 
         if (checkPassword !== form[i]) {
