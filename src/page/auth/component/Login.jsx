@@ -5,7 +5,7 @@ import useTranslate from "../../../core/hook/useTranslate";
 import { handleLogin } from "../../../redux/action/authAction";
 
 export function Login() {
-  let { loginErr } = useSelector((store) => store.auth);
+  let { loginErr, data } = useSelector((store) => store.auth);
   let { t } = useTranslate();
 
   let { form, error, inputChange, check } = useFormValidate(

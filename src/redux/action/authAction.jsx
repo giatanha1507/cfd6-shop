@@ -1,5 +1,5 @@
 import authApi from "../../service/authApi";
-import { ERROR, LOGIN, LOGOUT, REGISTER } from "../type";
+import { ERROR, LOGIN, LOGOUT, REGISTER, REGISTERERROR } from "../type";
 
 export function handleLogin(form) {
   return async (dispatch) => {
@@ -35,7 +35,7 @@ export function handleRegister(form) {
       });
     } else if (res.error) {
       dispatch({
-        type: ERROR,
+        type: REGISTERERROR,
         payload: res.error,
       });
     }

@@ -5,9 +5,9 @@ import useTranslate from "../../../core/hook/useTranslate";
 import { handleRegister } from "../../../redux/action/authAction";
 
 export function Register() {
-  let { loginErr } = useSelector((store) => store.auth);
+  let { regisErr } = useSelector((store) => store.auth);
   let { t } = useTranslate();
-  let { form, error, inputChange, check } = useFormValidate(
+  let { form, error, inputChange, check, setForm } = useFormValidate(
     {
       password: "",
       first_name: "",
@@ -42,10 +42,6 @@ export function Register() {
       },
 
       message: {
-        username: {
-          required: "Vui long dien ten dang nhap",
-          pattern: "Ten dang nhap khong dung dinh dang",
-        },
         password: {
           required: "Vui long nhap mat khau",
         },
@@ -62,7 +58,14 @@ export function Register() {
     let error = check();
     if (Object.keys(error).length === 0) {
       dispatch(handleRegister(form));
-      //   console.log("run");
+      setForm({
+        ...form,
+        password: "",
+        first_name: "",
+        last_name: "",
+        confirm_password: "",
+        email: "",
+      });
     }
   }
   return (
@@ -78,7 +81,7 @@ export function Register() {
               <div className="col-12">
                 {/* Email */}
                 <div className="form-group">
-                  {loginErr && <p className="text-error">{loginErr}</p>}
+                  {regisErr && <p className="text-error">{regisErr}</p>}
                   <label className="sr-only" htmlFor="registerFirstName">
                     {t(" First Name *")}
                   </label>
@@ -86,7 +89,11 @@ export function Register() {
                     name="first_name"
                     value={form.first_name}
                     onChange={inputChange}
-                    className="form-control form-control-sm"
+                    className={`${
+                      error.first_name
+                        ? "form-control form-control-sm error"
+                        : "form-control form-control-sm"
+                    }`}
                     id="registerFirstName"
                     type="text"
                     placeholder="First Name *"
@@ -107,7 +114,11 @@ export function Register() {
                     name="last_name"
                     value={form.last_name}
                     onChange={inputChange}
-                    className="form-control form-control-sm"
+                    className={`${
+                      error.last_name
+                        ? "form-control form-control-sm error"
+                        : "form-control form-control-sm"
+                    }`}
                     id="registerLastName"
                     type="text"
                     placeholder="Last Name *"
@@ -128,7 +139,11 @@ export function Register() {
                     name="email"
                     value={form.email}
                     onChange={inputChange}
-                    className="form-control form-control-sm"
+                    className={`${
+                      error.email
+                        ? "form-control form-control-sm error"
+                        : "form-control form-control-sm"
+                    }`}
                     id="registerEmail"
                     type="email"
                     placeholder="Email Address *"
@@ -147,7 +162,11 @@ export function Register() {
                     name="password"
                     value={form.password}
                     onChange={inputChange}
-                    className="form-control form-control-sm"
+                    className={`${
+                      error.password
+                        ? "form-control form-control-sm error"
+                        : "form-control form-control-sm"
+                    }`}
                     id="registerPassword"
                     type="password"
                     placeholder="Password *"
@@ -168,7 +187,11 @@ export function Register() {
                     name="confirm_password"
                     value={form.confirm_password}
                     onChange={inputChange}
-                    className="form-control form-control-sm"
+                    className={`${
+                      error.confirm_password
+                        ? "form-control form-control-sm error"
+                        : "form-control form-control-sm"
+                    }`}
                     id="registerPasswordConfirm"
                     type="password"
                     placeholder="Confirm Password *"

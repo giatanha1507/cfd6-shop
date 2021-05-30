@@ -1,12 +1,10 @@
-import { LOGIN, LOGOUT, UPDATE, REGISTER, ERROR } from "../type";
+import { LOGIN, LOGOUT, UPDATE, REGISTER, ERROR, REGISTERERROR } from "../type";
 
 let init = {
   login: JSON.parse(localStorage.getItem("login")) || false,
   data: JSON.parse(localStorage.getItem("data")) || {},
-  error:{
-    loginErr:""
-    // registerErr:""
-  }
+  loginErr: "",
+  regisErr: "",
 };
 
 export default function authReducer(state = init, action) {
@@ -23,6 +21,7 @@ export default function authReducer(state = init, action) {
     case LOGOUT:
       localStorage.removeItem("login");
       localStorage.removeItem("data");
+      localStorage.removeItem("token");
       return {
         ...state,
         login: false,
@@ -35,8 +34,17 @@ export default function authReducer(state = init, action) {
         data: action.payload,
       };
     case REGISTER:
+      localStorage.setItem("data", JSON.stringify(action.payload));
+      // localStorage.setItem("login", true);
       return {
         ...state,
+        data: action.payload,
+        // login: true,
+      };
+    case REGISTERERROR:
+      return {
+        ...state,
+        regisErr: action.payload,
       };
     case ERROR:
       return {
