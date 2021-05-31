@@ -18,7 +18,6 @@ export default function useFormValidate(initialForm, validate) {
     let name = e.target.name;
     let value = e.target.value;
 
-    // console.log(`pass1`, pass1);
     if (e.target.type === "checkbox") {
       value = e.target.checked;
     }
@@ -32,10 +31,9 @@ export default function useFormValidate(initialForm, validate) {
     let { rule, message } = validate;
     for (let i in rule) {
       let r = rule[i];
-      let m = message[i];
       if (r.required) {
         if (!form[i]?.trim()) {
-          err[i] = m?.required || "Khong duoc de trong";
+          err[i] = message[i]?.required || "Khong duoc de trong";
           continue;
         }
       }
@@ -61,7 +59,7 @@ export default function useFormValidate(initialForm, validate) {
         }
 
         if (!pattern.test(form[i])) {
-          err[i] = m?.pattern || "Khong dung dinh dang";
+          err[i] = message?.pattern || "Khong dung dinh dang";
         }
       }
       if (r.min) {

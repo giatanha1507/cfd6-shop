@@ -1,15 +1,32 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import useFormValidate from "../../../../core/hook/useFormValidate";
 import useTranslate from "../../../../core/hook/useTranslate";
+import { handleUpdate } from "../../../../redux/action/authAction";
 
 export function Personal() {
   let { t } = useTranslate();
   let yearNow = new Date().getFullYear();
   let { data } = useSelector((store) => store.auth);
+  let dispatch = useDispatch();
+  let birthday = "";
+  if (data.birthday === null) {
+    birthday = "1/1/2000";
+  } else {
+    birthday = data.birthday;
+  }
+
+  let [day, month, year] = birthday.split("/");
+  let [date, setDate] = useState({
+    day: day,
+    month: month,
+    year: year,
+  });
   let { form, error, inputChange, check, setForm } = useFormValidate(
     {
-      ...data,
+      first_name: data.first_name,
+      last_name: data.last_name,
+      gender: "male",
     },
     {
       rule: {
@@ -26,14 +43,29 @@ export function Personal() {
           pattern: "name",
         },
       },
+      message: {},
     }
   );
+  function handleSelect(e) {
+    let name = e.target.name;
+    setDate({
+      ...date,
+      [name]: e.target.value,
+    });
+  }
   // console.log(`data?.birthday`);
   function onUpdate(e) {
     e.preventDefault();
+    let send = date.day + "/" + date.month + "/" + date.year;
     let err = check();
     if (Object.keys(err).length === 0) {
-      console.log(`form`, form);
+      // console.log(`form`, form);
+      dispatch(
+        handleUpdate({
+          ...form,
+          birthday: send,
+        })
+      );
     }
   }
 
@@ -94,7 +126,7 @@ export function Personal() {
                 id="accountEmail"
                 type="email"
                 placeholder="Email Address *"
-                defaultValue="user@email.com"
+                // defaultValue="user@email.com"
                 required
               />
               {error.email && <p className="text-error">{error.email}</p>}
@@ -141,14 +173,12 @@ export function Personal() {
                   <select
                     className="custom-select custom-select-sm"
                     id="accountDate"
+                    onChange={handleSelect}
+                    name="day"
+                    value={date.day}
                   >
                     {[...Array(31)].map((e, i) => (
-                      <option
-                        data-name="day"
-                        onChange={inputChange}
-                        data-value={i + 1}
-                        key={i}
-                      >
+                      <option onChange={inputChange} value={i + 1} key={i}>
                         {i + 1}
                       </option>
                     ))}
@@ -162,14 +192,12 @@ export function Personal() {
                   <select
                     className="custom-select custom-select-sm"
                     id="accountMonth"
+                    name="month"
+                    onChange={handleSelect}
+                    value={date.month}
                   >
                     {[...Array(12)].map((e, i) => (
-                      <option
-                        data-name="month"
-                        onChange={inputChange}
-                        value={i + 1}
-                        key={i}
-                      >
+                      <option onClick={inputChange} value={i + 1} key={i}>
                         {i + 1}
                       </option>
                     ))}
@@ -183,6 +211,9 @@ export function Personal() {
                   <select
                     className="custom-select custom-select-sm"
                     id="accountYear"
+                    name="year"
+                    onChange={handleSelect}
+                    value={date.year}
                   >
                     {[...Array(100)].map((e, i) => (
                       <option value={yearNow - i} key={i}>
@@ -200,11 +231,23 @@ export function Personal() {
               <label>{t("Gender")}</label>
               <div className="btn-group-toggle" data-toggle="buttons">
                 <label className="btn btn-sm btn-outline-border active">
-                  <input type="radio" name="gender" defaultChecked />{" "}
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    defaultChecked={form.gender === "male"}
+                    onClick={inputChange}
+                  />{" "}
                   {t("Male")}
                 </label>
                 <label className="btn btn-sm btn-outline-border">
-                  <input type="radio" name="gender" />
+                  <input
+                    onClick={inputChange}
+                    type="radio"
+                    name="gender"
+                    value="female"
+                    defaultChecked={form.gender === "female"}
+                  />
                   {t(" Female")}
                 </label>
               </div>
