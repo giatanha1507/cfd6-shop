@@ -6,6 +6,7 @@ import { handleUpdate } from "../../../../redux/action/authAction";
 
 export function Personal() {
   let { t } = useTranslate();
+  let [text, setText] = useState("");
   let yearNow = new Date().getFullYear();
   let { data } = useSelector((store) => store.auth);
   let dispatch = useDispatch();
@@ -22,11 +23,15 @@ export function Personal() {
     month: month,
     year: year,
   });
+  let firstName = data.first_name;
   let { form, error, inputChange, check, setForm } = useFormValidate(
     {
       first_name: data.first_name,
       last_name: data.last_name,
+      email: data.email,
       gender: "male",
+      password: "",
+      confirm_password: "",
     },
     {
       rule: {
@@ -42,10 +47,27 @@ export function Personal() {
           required: true,
           pattern: "name",
         },
+        password: {
+          required: true,
+          min: 6,
+          max: 32,
+        },
+        confirm_password: {
+          required: true,
+          match: "password",
+        },
       },
-      message: {},
+      message: {
+        password: {
+          required: "Vui long nhap mat khau",
+        },
+        confirm_password: {
+          pattern: "Mat khau khong trung khop",
+        },
+      },
     }
   );
+
   function handleSelect(e) {
     let name = e.target.name;
     setDate({
@@ -53,19 +75,29 @@ export function Personal() {
       [name]: e.target.value,
     });
   }
-  // console.log(`data?.birthday`);
   function onUpdate(e) {
     e.preventDefault();
+    let exclude = {};
+    if (!form.password) {
+      exclude = {
+        password: true,
+        confirm_password: true,
+      };
+    }
     let send = date.day + "/" + date.month + "/" + date.year;
-    let err = check();
+    let err = check({ exclude });
     if (Object.keys(err).length === 0) {
-      // console.log(`form`, form);
-      dispatch(
-        handleUpdate({
-          ...form,
-          birthday: send,
-        })
-      );
+      if (firstName !== form.first_name) {
+        dispatch(
+          handleUpdate({
+            ...form,
+            birthday: send,
+          })
+        );
+        setText("");
+      } else {
+        setText("Vui long thay doi thong tin");
+      }
     }
   }
 
@@ -73,6 +105,7 @@ export function Personal() {
     <div className="col-12 col-md-9 col-lg-8 offset-lg-1">
       {/* Form */}
       <form>
+        {text && <p className="text-error">{text}</p>}
         <div className="row">
           <div className="col-12 col-md-6">
             {/* Email */}
@@ -141,8 +174,11 @@ export function Personal() {
                 id="accountPassword"
                 type="password"
                 placeholder="Current Password *"
-                required
+                name="password"
+                value={form.password}
+                onChange={inputChange}
               />
+              {error.password && <p className="text-error">{error.password}</p>}
             </div>
           </div>
           <div className="col-12 col-md-6">
@@ -154,8 +190,13 @@ export function Personal() {
                 id="AccountNewPassword"
                 type="password"
                 placeholder="New Password *"
-                required
+                name="confirm_password"
+                value={form.confirm_password}
+                onChange={inputChange}
               />
+              {error.confirm_password && (
+                <p className="text-error">{error.confirm_password}</p>
+              )}
             </div>
           </div>
           <div className="col-12 col-lg-6">

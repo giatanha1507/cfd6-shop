@@ -13,7 +13,6 @@ const regTitleContent = /(?:[A-Z][a-z]+)/;
 export default function useFormValidate(initialForm, validate) {
   let [form, setForm] = useState(initialForm);
   let [error, setError] = useState("");
-  var checkPassword = "";
   function inputChange(e) {
     let name = e.target.name;
     let value = e.target.value;
@@ -26,11 +25,13 @@ export default function useFormValidate(initialForm, validate) {
       [name]: value,
     });
   }
-  function check() {
+  const check = (option = { exclude: {} }) => {
     let err = {};
+    let { exclude } = option;
     let { rule, message } = validate;
     for (let i in rule) {
       let r = rule[i];
+      if (i in exclude) continue;
       if (r.required) {
         if (!form[i]?.trim()) {
           err[i] = message[i]?.required || "Khong duoc de trong";
@@ -74,21 +75,16 @@ export default function useFormValidate(initialForm, validate) {
           continue;
         }
       }
-      if (r.check) {
-        checkPassword = form[i];
-      }
-      if (r.confirm_password) {
-        // console.log(`form[i]`, form[i]);
-
-        if (checkPassword !== form[i]) {
-          err[i] = "Mat khau khong khop";
+      if (r.match && form[r.match]) {
+        if (form[i] !== form[r.match]) {
+          err[i] = message[i]?.match || "Mat khau khong khop";
         }
       }
     }
 
     setError(err);
     return err;
-  }
+  };
 
   return { form, error, inputChange, check, setForm, setError };
 }

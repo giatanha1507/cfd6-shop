@@ -25,11 +25,10 @@ export function Register() {
           required: true,
           min: 6,
           max: 32,
-          check: "password",
         },
         confirm_password: {
           required: true,
-          confirm_password: true,
+          match: "password",
         },
         first_name: {
           required: true,
