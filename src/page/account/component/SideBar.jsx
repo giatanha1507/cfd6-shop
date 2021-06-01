@@ -13,6 +13,7 @@ export function SideBar() {
     e.preventDefault();
     dispatch(handleLogout());
   }
+  
   return (
     <div className="col-12 col-md-3">
       {/* Nav */}
@@ -21,14 +22,13 @@ export function SideBar() {
           <NavLink
             to={`${path}/order`}
             className="list-group-item list-group-item-action dropright-toggle "
-            href="account-orders.html"
+            // onClick={onActive}
           >
             {t("Orders")}
           </NavLink>
           <NavLink
             to={`${path}/wishlist`}
             className="list-group-item list-group-item-action dropright-toggle "
-            href="account-wishlist.html"
           >
             {t("Widhlist")}
           </NavLink>
@@ -36,21 +36,18 @@ export function SideBar() {
             exact
             to={`${path}`}
             className="list-group-item list-group-item-action dropright-toggle "
-            href="account-personal-info.html"
           >
             {t("Personal Info")}
           </NavLink>
           <NavLink
             to={`${path}/address`}
             className="list-group-item list-group-item-action dropright-toggle"
-            href="account-address.html"
           >
             {t("Addresses")}
           </NavLink>
           <NavLink
             to={`${path}/payment`}
             className="list-group-item list-group-item-action dropright-toggle "
-            href="account-payment.html"
           >
             {t(" Payment Methods")}
           </NavLink>

@@ -1,11 +1,15 @@
 import React from "react";
-import { useRouteMatch } from "react-router";
-import { NavLink } from "react-router-dom";
+import { Route, useRouteMatch } from "react-router";
+import { Link } from "react-router-dom";
 import useTranslate from "../../../../../core/hook/useTranslate";
 
 export function OrderItem() {
   let { t } = useTranslate();
   let { path } = useRouteMatch();
+
+  
+
+
   return (
     <div className="card card-lg mb-5 border">
       <div className="card-body pb-0">
@@ -101,13 +105,13 @@ export function OrderItem() {
             <div className="form-row">
               <div className="col-6">
                 {/* Button */}
-                <NavLink
-                  to={`${path}-detail`}
+                <Link
+                  to={`${path}/detail`}
                   className="btn btn-sm btn-block btn-outline-dark"
-                  href="account-order.html"
+                  // onClick={Active}
                 >
                   {t("Order Details")}
-                </NavLink>
+                </Link>
               </div>
               <div className="col-6">
                 {/* Button */}

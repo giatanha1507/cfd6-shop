@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useRouteMatch } from "react-router";
 import useTranslate from "../../../../core/hook/useTranslate";
 import { ProductOrder } from "./component";
 
 export function OrderDetails() {
   let { t } = useTranslate();
+  let { path } = useRouteMatch();
+  // console.log("path", path.split("/")[2]);
+  console.log("here");
+  // if (path.split("/")[2] === "order-detail") {
+  //   let $ = window.$;
+  //   $(".list-group-item list-group-item-action dropright-toggle").addClass(
+  //     "active"
+  //   );
+  // }
+  // useEffect(() => {
+  //   let $ = window.$;
+  //   $(".list-group-item list-group-item-action dropright-toggle").addClass(
+  //     "active"
+  //   );
+  //   // return () => {
+  //   //   cleanup;
+  //   // };
+  // }, []);
 
   return (
     <div className="col-12 col-md-9 col-lg-8 offset-lg-1">

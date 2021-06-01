@@ -42,6 +42,7 @@ export function handleRegister(form) {
 }
 
 export function handleUpdate(form) {
+  
   return async (dispatch) => {
     let res = await authApi.update(form);
     if (res?.data) {

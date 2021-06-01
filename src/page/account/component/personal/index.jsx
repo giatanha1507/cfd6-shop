@@ -24,7 +24,7 @@ export function Personal() {
     year: year,
   });
   let firstName = data.first_name;
-  let { form, error, inputChange, check, setForm } = useFormValidate(
+  let { form, error, inputChange, check } = useFormValidate(
     {
       first_name: data.first_name,
       last_name: data.last_name,
@@ -87,7 +87,7 @@ export function Personal() {
     let send = date.day + "/" + date.month + "/" + date.year;
     let err = check({ exclude });
     if (Object.keys(err).length === 0) {
-      if (firstName !== form.first_name) {
+      if (firstName !== form.name) {
         dispatch(
           handleUpdate({
             ...form,
@@ -98,6 +98,8 @@ export function Personal() {
       } else {
         setText("Vui long thay doi thong tin");
       }
+
+      // console.log(`form`, form);
     }
   }
 
@@ -115,7 +117,7 @@ export function Personal() {
                 name="first_name"
                 value={form.first_name}
                 className="form-control form-control-sm"
-                id="accountFirstName"
+                id="accountname"
                 type="text"
                 placeholder="First Name *"
                 // defaultValue="Daniel"
@@ -179,6 +181,7 @@ export function Personal() {
                 onChange={inputChange}
               />
               {error.password && <p className="text-error">{error.password}</p>}
+              {text && <p className="text-error">{text}</p>}
             </div>
           </div>
           <div className="col-12 col-md-6">
