@@ -2,7 +2,7 @@ import React from "react";
 import { Paging, ProductShop } from "../../../component";
 import useTranslate from "../../../core/hook/useTranslate";
 
-export function ContentShop() {
+export function ContentShop({ product }) {
   let { t } = useTranslate();
   return (
     <section className="py-11">
@@ -1402,6 +1402,9 @@ export function ContentShop() {
             </div>
             {/* Products */}
             <div className="row">
+              {/* {product.map((value) => (
+                <ProductShop {...value} key={value._id} />
+              ))} */}
               <ProductShop />
               <ProductShop />
               <ProductShop />
