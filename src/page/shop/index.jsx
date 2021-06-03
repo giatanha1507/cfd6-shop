@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Promote } from "../../component";
-import shopApi from "../../service/shopApi";
+import { fetchCategory, fetchProducts } from "../../redux/action/productAction";
 import { ContentShop } from "./component";
 
 export function Shop() {
-  let [state, setState] = useState({
-    product: [],
-  });
+  let dispatch = useDispatch();
+  let { product, categories } = useSelector((store) => store.product);
   useEffect(() => {
-    shopApi.shopProduct().then((res) => {
-      setState(res);
-      localStorage.setItem("shopProduct", JSON.stringify(res));
-    });
+    dispatch(fetchProducts());
+    dispatch(fetchCategory());
   }, []);
   return (
     <>
       <Promote />
-      <ContentShop product={state.data} />
+      <ContentShop product={product} categories={categories} />
     </>
   );
 }

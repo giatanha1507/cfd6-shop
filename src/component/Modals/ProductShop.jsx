@@ -1,7 +1,7 @@
 import React from "react";
 import useTranslate from "../../core/hook/useTranslate";
 
-export function ProductShop() {
+export function ProductShop({ name, thumbnail_url }) {
   let { t } = useTranslate();
 
   return (
@@ -10,7 +10,7 @@ export function ProductShop() {
       <div className="card mb-7">
         {/* Badge */}
         <div className="badge badge-white card-badge card-badge-left text-uppercase">
-          {t("New")}
+          {t("Nes")}
         </div>
         {/* Image */}
         <div className="card-img">
@@ -23,7 +23,7 @@ export function ProductShop() {
             />
             <img
               className="card-img-top card-img-front"
-              src="/img/products/product-5.jpg"
+              src={thumbnail_url}
               alt="..."
             />
           </a>
@@ -67,7 +67,7 @@ export function ProductShop() {
           {/* Title */}
           <div className="font-weight-bold">
             <a className="text-body" href="product.html">
-              {t("Leather mid-heel Sandals")}
+              {name}
             </a>
           </div>
           {/* Price */}

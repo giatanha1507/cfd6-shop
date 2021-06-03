@@ -1,1 +1,2 @@
-export * from "./ContentShop"
+export * from "./ContentShop";
+export * from "./CategotyItem";
