@@ -10,7 +10,7 @@ export function ProductShop({ name, thumbnail_url }) {
       <div className="card mb-7">
         {/* Badge */}
         <div className="badge badge-white card-badge card-badge-left text-uppercase">
-          {t("Nes")}
+          {t("Net")}
         </div>
         {/* Image */}
         <div className="card-img">

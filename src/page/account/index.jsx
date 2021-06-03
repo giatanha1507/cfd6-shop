@@ -14,7 +14,7 @@ import {
   WishList,
 } from "./component";
 
-export function Account() {
+export function Account({ children }) {
   let { path } = useRouteMatch();
   let { login } = useSelector((store) => store.auth);
 
@@ -27,7 +27,8 @@ export function Account() {
         <HeaderAccount />
         <div className="row">
           <SideBar />
-          <Switch>
+          {children}
+          {/* <Switch>
             <Route path={`${path}/order`} exact component={OrderList} />
             <Route path={`${path}/order/detail`} component={OrderDetails} />
             <Route path={`${path}/wishlist`} component={WishList} />
@@ -36,7 +37,7 @@ export function Account() {
             <Route path={`${path}/payment`} component={Payment} />
             <Route path={`${path}/payment-edit`} component={PaymentEdit} />
             <Route path={`${path}`} component={Personal} />
-          </Switch>
+          </Switch> */}
         </div>
       </div>
     </section>
