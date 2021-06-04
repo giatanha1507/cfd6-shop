@@ -11,6 +11,9 @@ export function Shop() {
     dispatch(fetchProducts());
     dispatch(fetchCategory());
   }, []);
+
+  
+
   return (
     <>
       <Promote />

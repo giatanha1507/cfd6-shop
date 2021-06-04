@@ -37,6 +37,10 @@ let routers = [
         path: "/about",
       },
       {
+        component: Shop,
+        path: "/shop",
+      },
+      {
         component: Auth,
         path: "/auth",
       },

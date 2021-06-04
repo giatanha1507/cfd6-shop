@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Paging, ProductShop } from "../../../component";
 import useTranslate from "../../../core/hook/useTranslate";
 import { CategotyItem } from "./CategotyItem";
 
 export function ContentShop({ product, categories }) {
   let { t } = useTranslate();
-  console.log(`product`, product[0]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemPerPage] = useState(3);
+
+  // Get current item
+  const indexOfLastItem = currentPage * itemPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemPerPage;
+  const currentItem = product.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <section className="py-11">
       <div className="container">
@@ -843,12 +851,17 @@ export function ContentShop({ product, categories }) {
             </div>
             {/* Products */}
             <div className="row">
-              {product.map((value) => (
+              {currentItem.map((value) => (
                 <ProductShop {...value} key={value._id} />
               ))}
             </div>
             {/* Pagination */}
-            <Paging />
+            <Paging
+              itemPerPage={itemPerPage}
+              totalItem={product.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
           </div>
         </div>
       </div>
