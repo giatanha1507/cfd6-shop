@@ -5,11 +5,7 @@ import { Redirect, Route } from "react-router";
 export default function PrivateRouter(prop) {
   let { login } = useSelector((store) => store.auth);
   if (!login) {
-    return (
-      <Route>
-        <Redirect to="/auth" />
-      </Route>
-    );
+    return <Redirect to="/auth" />;
   }
   return <Route {...prop} />;
 }

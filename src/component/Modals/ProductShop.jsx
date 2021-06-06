@@ -1,7 +1,12 @@
 import React from "react";
 import useTranslate from "../../core/hook/useTranslate";
 
-export function ProductShop({ name, thumbnail_url }) {
+export function ProductShop({
+  name,
+  thumbnail_url,
+  rating_average,
+  categories,
+}) {
   let { t } = useTranslate();
 
   return (
@@ -18,7 +23,7 @@ export function ProductShop({ name, thumbnail_url }) {
           <a className="card-img-hover" href="product.html">
             <img
               className="card-img-top card-img-back"
-              src="/img/products/product-120.jpg"
+              src={thumbnail_url}
               alt="..."
             />
             <img
@@ -61,7 +66,7 @@ export function ProductShop({ name, thumbnail_url }) {
           {/* Category */}
           <div className="font-size-xs">
             <a className="text-muted" href="shop.html">
-              {t("  Shoes")}
+              {categories}
             </a>
           </div>
           {/* Title */}
@@ -69,6 +74,26 @@ export function ProductShop({ name, thumbnail_url }) {
             <a className="text-body" href="product.html">
               {name}
             </a>
+          </div>
+          <div
+            class="rating font-size-sm text-dark"
+            data-value={rating_average}
+          >
+            <div class="rating-item">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="rating-item">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="rating-item">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="rating-item">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="rating-item">
+              <i class="fas fa-star"></i>
+            </div>
           </div>
           {/* Price */}
           <div className="font-weight-bold text-muted">$129.00</div>

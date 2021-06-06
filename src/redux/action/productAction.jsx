@@ -1,13 +1,13 @@
 import shopApi from "../../service/shopApi";
 import { PRODUCTS, CATEGORY } from "../type";
 
-export function fetchProducts() {
+export function fetchProducts(str) {
   return async (dispatch) => {
-    let res = await shopApi.shopProduct();
-    if (res?.data) {
+    let res = await shopApi.shopProduct(str);
+    if (res) {
       dispatch({
         type: PRODUCTS,
-        payload: res.data,
+        payload: res,
       });
     }
   };
@@ -16,7 +16,6 @@ export function fetchProducts() {
 export function fetchCategory() {
   return async (dispatch) => {
     let res = await shopApi.shopCategory();
-    console.log(`res`, res);
     if (res) {
       dispatch({
         type: CATEGORY,

@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Paging, ProductShop } from "../../../component";
 import useTranslate from "../../../core/hook/useTranslate";
-import { CategotyItem } from "./CategotyItem";
+import { reverse, getQuery } from "../../../utils/queryUrl";
 
+let $ = window.$;
 export function ContentShop({ product, categories }) {
   let { t } = useTranslate();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemPerPage] = useState(3);
 
-  // Get current item
-  const indexOfLastItem = currentPage * itemPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemPerPage;
-  const currentItem = product.slice(indexOfFirstItem, indexOfLastItem);
+  let { paginate } = useSelector((store) => store.product);
+  let ref = useRef();
+  useEffect(() => {
+    $(ref.current).flickity({
+      pageDots: true,
+    });
+  }, []);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <section className="py-11">
       <div className="container">
@@ -36,7 +39,17 @@ export function ContentShop({ product, categories }) {
                     <div className="form-group">
                       <ul className="list-styled mb-0" id="productsNav">
                         {categories.map((value) => (
-                          <CategotyItem {...value} key={value._id} />
+                          <li className="list-styled-item">
+                            <Link
+                              className="list-styled-link"
+                              to={`/shop?${reverse({
+                                ...getQuery(),
+                                categories: value.id,
+                              })}`}
+                            >
+                              {value.title}
+                            </Link>
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -674,10 +687,7 @@ export function ContentShop({ product, categories }) {
           </div>
           <div className="col-12 col-md-8 col-lg-9">
             {/* Slider */}
-            <div
-              className="flickity-page-dots-inner mb-9"
-              data-flickity='{"pageDots": true}'
-            >
+            <div ref={ref} className="flickity-page-dots-inner mb-9">
               {/* Item */}
               <div className="w-100">
                 <div
@@ -851,17 +861,12 @@ export function ContentShop({ product, categories }) {
             </div>
             {/* Products */}
             <div className="row">
-              {currentItem.map((value) => (
+              {product.map((value) => (
                 <ProductShop {...value} key={value._id} />
               ))}
             </div>
             {/* Pagination */}
-            <Paging
-              itemPerPage={itemPerPage}
-              totalItem={product.length}
-              paginate={paginate}
-              currentPage={currentPage}
-            />
+            <Paging {...paginate} />
           </div>
         </div>
       </div>

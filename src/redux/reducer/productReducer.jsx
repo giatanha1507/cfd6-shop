@@ -3,6 +3,7 @@ import { CATEGORY, PRODUCTS } from "../type";
 let init = {
   product: [],
   categories: [],
+  paginate: {},
 };
 
 export default function productReducer(state = init, action) {
@@ -10,7 +11,8 @@ export default function productReducer(state = init, action) {
     case PRODUCTS:
       return {
         ...state,
-        product: action.payload,
+        product: action.payload.data,
+        paginate: action.payload.paginate,
       };
     case CATEGORY:
       return {
