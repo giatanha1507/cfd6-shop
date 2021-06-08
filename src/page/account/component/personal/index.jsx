@@ -98,8 +98,6 @@ export function Personal() {
       } else {
         setText("Vui long thay doi thong tin");
       }
-
-      // console.log(`form`, form);
     }
   }
 
@@ -204,11 +202,11 @@ export function Personal() {
           </div>
           <div className="col-12 col-lg-6">
             {/* Birthday */}
-            <div className="form-group">
+            <div className="form-group ">
               {/* Label */}
               <label>{t("Date of Birth")}</label>
               {/* Inputs */}
-              <div className="form-row">
+              <div className="form-row edit">
                 <div className="col-auto">
                   {/* Date */}
                   <label className="sr-only" htmlFor="accountDate">

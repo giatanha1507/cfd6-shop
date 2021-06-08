@@ -219,12 +219,9 @@ export function Header() {
                           {/* Links */}
                           <ul className="list-styled mb-7 font-size-sm">
                             <li className="list-styled-item">
-                              <a
-                                className="list-styled-link"
-                                href="./shop.html"
-                              >
+                              <Link className="list-styled-link" to="/shop">
                                 {t("  Default")}
-                              </a>
+                              </Link>
                             </li>
                             <li className="list-styled-item">
                               <a

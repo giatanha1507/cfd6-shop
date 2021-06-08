@@ -13,3 +13,9 @@
 .success {
   color: green !important;
 }
+.edit {
+  flex-wrap: nowrap;
+}
+.catagories {
+  font-weight: bolder;
+}

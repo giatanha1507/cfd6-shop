@@ -16,6 +16,8 @@ export function ContentShop({ product, categories }) {
       pageDots: true,
     });
   }, []);
+  let obj = getQuery();
+  delete obj.page;
 
   return (
     <section className="py-11">
@@ -38,12 +40,12 @@ export function ContentShop({ product, categories }) {
                   <div className="collapse show" id="categoryCollapse">
                     <div className="form-group">
                       <ul className="list-styled mb-0" id="productsNav">
-                        {categories.map((value) => (
+                        {categories?.map((value) => (
                           <li className="list-styled-item">
                             <Link
-                              className="list-styled-link"
+                              className="list-styled-link "
                               to={`/shop?${reverse({
-                                ...getQuery(),
+                                ...obj,
                                 categories: value.id,
                               })}`}
                             >

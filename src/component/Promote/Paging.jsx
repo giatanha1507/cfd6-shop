@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getQuery, reverse } from "../../utils/queryUrl";
 
 export function Paging({ currentPage, totalPage }) {
   let start = currentPage - 2;
@@ -14,9 +15,11 @@ export function Paging({ currentPage, totalPage }) {
   function renderPage() {
     let arr = [];
     for (let i = start; i <= end; i++) {
+      let obj = getQuery();
+      obj.page = i;
       arr.push(
         <li className={`page-item ${currentPage === i ? "active" : ""} `}>
-          <Link to={`/shop?page=${i}`} className="page-link">
+          <Link to={`/shop?${reverse(obj)}`} className="page-link">
             {i}
           </Link>
         </li>

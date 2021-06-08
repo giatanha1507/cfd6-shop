@@ -5,6 +5,7 @@ let init = {
   data: JSON.parse(localStorage.getItem("data")) || {},
   loginErr: "",
   regisErr: "",
+  loading: false,
 };
 
 export default function authReducer(state = init, action) {
@@ -18,6 +19,7 @@ export default function authReducer(state = init, action) {
         login: true,
         data: action.payload,
       };
+
     case LOGOUT:
       localStorage.removeItem("login");
       localStorage.removeItem("data");
@@ -28,7 +30,7 @@ export default function authReducer(state = init, action) {
         data: "",
       };
     case UPDATE:
-      localStorage.setItem("data", JSON.stringify(action.payload)); 
+      localStorage.setItem("data", JSON.stringify(action.payload));
       return {
         ...state,
         data: action.payload,
