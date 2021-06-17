@@ -10,5 +10,10 @@ const shopApi = {
       (res) => res.json()
     );
   },
+  products(slug) {
+    return fetch(`http://cfd-reactjs.herokuapp.com/product?slug=${slug}`).then(
+      (res) => res.json()
+    );
+  },
 };
 export default shopApi;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import useTranslate from "../../core/hook/useTranslate";
 
 export function ProductShop({
@@ -6,6 +7,7 @@ export function ProductShop({
   thumbnail_url,
   rating_average,
   categories,
+  slug,
 }) {
   let { t } = useTranslate();
 
@@ -20,7 +22,7 @@ export function ProductShop({
         {/* Image */}
         <div className="card-img">
           {/* Image */}
-          <a className="card-img-hover" href="product.html">
+          <Link className="card-img-hover" to={`/product/${slug}`}>
             <img
               className="card-img-top card-img-back"
               src={thumbnail_url}
@@ -31,7 +33,7 @@ export function ProductShop({
               src={thumbnail_url}
               alt="..."
             />
-          </a>
+          </Link>
           {/* Actions */}
           <div className="card-actions">
             <span className="card-action">

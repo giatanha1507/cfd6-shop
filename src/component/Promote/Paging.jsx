@@ -16,7 +16,9 @@ export function Paging({ currentPage, totalPage }) {
     let arr = [];
     for (let i = start; i <= end; i++) {
       let obj = getQuery();
+      // console.log(`obj`, obj);
       obj.page = i;
+      // console.log(i);
       arr.push(
         <li className={`page-item ${currentPage === i ? "active" : ""} `}>
           <Link to={`/shop?${reverse(obj)}`} className="page-link">

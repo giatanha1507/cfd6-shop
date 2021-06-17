@@ -17,11 +17,16 @@ import {
 } from "./page";
 import { MainLayout } from "./layout/MainLayout";
 import { OrderDetails, OrderList, Personal } from "./page/account/component";
+import Demo from "./Demo";
 
 let routers = [
   {
     component: ComingSoon,
     path: "/coming-soon",
+  },
+  {
+    component: Demo,
+    path: "/demo",
   },
   {
     component: MainLayout,
@@ -36,6 +41,7 @@ let routers = [
         component: About,
         path: "/about",
       },
+
       {
         component: Shop,
         path: "/shop",
@@ -43,6 +49,10 @@ let routers = [
       {
         component: Auth,
         path: "/auth",
+      },
+      {
+        component: ProductDetail,
+        path: "/product/:slug",
       },
       {
         component: Account,

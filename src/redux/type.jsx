@@ -6,3 +6,5 @@ export const REGISTER = "REGISTER";
 export const REGISTERERROR = "REGISTERERROR";
 export const PRODUCTS = "PRODUCTS";
 export const CATEGORY = "CATEGORY";
+export const GET_NAME = "GET_NAME";
+

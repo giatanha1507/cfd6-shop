@@ -57,5 +57,28 @@ export default function authReducer(state = init, action) {
       return state;
   }
 
-  return state;
+  
 }
+
+// export const selectedSong = (song) => {
+//   return {
+//     type: SONG_SELECTED,
+//     payload: song,
+//   };
+// };
+
+// let init = {
+//   sing: [],
+// };
+
+// export default function authReducer(state = init, action) {
+//   switch (action.type) {
+//     case SONG_SELECTED:
+//       return {
+//         sing: action.payload,
+//       };
+
+//     default:
+//       return state;
+//   }
+// }

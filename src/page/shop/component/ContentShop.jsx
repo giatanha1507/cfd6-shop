@@ -1,15 +1,18 @@
 import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Paging, ProductShop } from "../../../component";
 import useTranslate from "../../../core/hook/useTranslate";
 import { reverse, getQuery } from "../../../utils/queryUrl";
+import { GET_NAME } from "../../../redux/type";
 
 let $ = window.$;
 export function ContentShop({ product, categories }) {
   let { t } = useTranslate();
+  // console.log(`categories`, categories.title);
 
-  let { paginate } = useSelector((store) => store.product);
+  let { paginate, categoryName } = useSelector((store) => store.product);
+  console.log(`categoryName`, categoryName);
   let ref = useRef();
   useEffect(() => {
     $(ref.current).flickity({
@@ -18,6 +21,18 @@ export function ContentShop({ product, categories }) {
   }, []);
   let obj = getQuery();
   delete obj.page;
+  let dispatch = useDispatch();
+  // console.log(`obj`, obj);
+  function handleCategoryName(value) {
+    // console.log(`value`, value);
+    dispatch({
+      type: GET_NAME,
+      payload: value,
+    });
+  }
+
+  let cateName = categories.find((e) => e.id == obj.categories);
+  console.log(`cateName`, obj);
 
   return (
     <section className="py-11">
@@ -35,14 +50,16 @@ export function ContentShop({ product, categories }) {
                     href="#categoryCollapse"
                   >
                     {t("  Category")}
+                    {/* {categories.value.title} */}
                   </a>
                   {/* Collapse */}
                   <div className="collapse show" id="categoryCollapse">
                     <div className="form-group">
                       <ul className="list-styled mb-0" id="productsNav">
                         {categories?.map((value) => (
-                          <li className="list-styled-item">
+                          <li key={value.id} className="list-styled-item">
                             <Link
+                              onClick={() => handleCategoryName(value)}
                               className="list-styled-link "
                               to={`/shop?${reverse({
                                 ...obj,
@@ -788,7 +805,7 @@ export function ContentShop({ product, categories }) {
             <div className="row align-items-center mb-7">
               <div className="col-12 col-md">
                 {/* Heading */}
-                <h3 className="mb-1">{t("Womens' Clothing")}</h3>
+                <h3 className="mb-1">{cateName?.title}</h3>
                 {/* Breadcrumb */}
                 <ol className="breadcrumb mb-md-0 font-size-xs text-gray-400">
                   <li className="breadcrumb-item">

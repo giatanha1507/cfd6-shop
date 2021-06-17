@@ -4,6 +4,7 @@ import { PRODUCTS, CATEGORY } from "../type";
 export function fetchProducts(str) {
   return async (dispatch) => {
     let res = await shopApi.shopProduct(str);
+    console.log(`res`, res);
     if (res) {
       dispatch({
         type: PRODUCTS,
