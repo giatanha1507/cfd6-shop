@@ -1,4 +1,11 @@
-import { LOGIN, LOGOUT, UPDATE, REGISTER, ERROR, REGISTERERROR } from "../type";
+import {
+  LOGIN,
+  LOGOUT,
+  UPDATE,
+  REGISTER,
+  ERROR,
+  REGISTER_ERROR,
+} from "../type";
 
 let init = {
   login: JSON.parse(localStorage.getItem("login")) || false,
@@ -42,7 +49,7 @@ export default function authReducer(state = init, action) {
         data: action.payload,
         // login: true,
       };
-    case REGISTERERROR:
+    case REGISTER_ERROR:
       return {
         ...state,
         regisErr: action.payload,
@@ -56,8 +63,6 @@ export default function authReducer(state = init, action) {
     default:
       return state;
   }
-
-  
 }
 
 // export const selectedSong = (song) => {

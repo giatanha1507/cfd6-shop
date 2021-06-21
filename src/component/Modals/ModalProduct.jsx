@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useSelector } from "react-redux";
 import useTranslate from "../../core/hook/useTranslate";
 export function ModalProduct() {
   let { t } = useTranslate();
+  let { getView } = useSelector((store) => store.product);
   return ReactDOM.createPortal(
     <div
       className="modal fade"
@@ -45,7 +47,7 @@ export function ModalProduct() {
               </div>
               <div className="col-12 col-lg-6 col-xl-7 py-9 px-md-9">
                 {/* Heading */}
-                <h4 className="mb-3">{t("Leather Sneakers")}</h4>
+                <h4 className="mb-3">{getView?.name}</h4>
                 {/* Price */}
                 <div className="mb-7">
                   <span className="h5">$85.00</span>

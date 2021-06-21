@@ -19,3 +19,8 @@
 .catagories {
   font-weight: bolder;
 }
+.product_shop {
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}

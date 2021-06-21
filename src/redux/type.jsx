@@ -3,8 +3,10 @@ export const LOGOUT = "LOGOUT";
 export const ERROR = "ERROR";
 export const UPDATE = "UPDATE";
 export const REGISTER = "REGISTER";
-export const REGISTERERROR = "REGISTERERROR";
+export const REGISTER_ERROR = "REGISTER_ERROR";
 export const PRODUCTS = "PRODUCTS";
 export const CATEGORY = "CATEGORY";
 export const GET_NAME = "GET_NAME";
-
+export const LOADING = "LOADING";
+export const GET_VIEW = "GET_VIEW";
+export const ADD_CART = "ADD_CART";

@@ -51,6 +51,10 @@ let routers = [
         path: "/auth",
       },
       {
+        component: ShoppingCart,
+        path: "/shopping-cart",
+      },
+      {
         component: ProductDetail,
         path: "/product/:slug",
       },

@@ -4,6 +4,7 @@ import { Promote } from "../../component";
 import { fetchCategory, fetchProducts } from "../../redux/action/productAction";
 import { ContentShop } from "./component";
 import { getQuery, reverse } from "../../utils/queryUrl";
+import { LOADING } from "../../redux/type";
 
 export function Shop() {
   let dispatch = useDispatch();
@@ -13,6 +14,9 @@ export function Shop() {
   let str = reverse(url);
 
   useEffect(() => {
+    dispatch({
+      type: LOADING,
+    });
     dispatch(fetchProducts(str));
     dispatch(fetchCategory());
   }, [str]);

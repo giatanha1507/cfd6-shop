@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import useTranslate from "../../core/hook/useTranslate";
+import { currency } from "../../utils/cur";
 
-export function CartItem() {
+export function CartItem({ name, amountItem, price }) {
   let { t } = useTranslate();
   return (
     <li className="list-group-item">
@@ -20,20 +22,19 @@ export function CartItem() {
           {/* Title */}
           <div className="d-flex mb-2 font-weight-bold">
             <a className="text-body" href="product.html">
-              {t("Suede cross body Bag")}
+              {name}
             </a>{" "}
-            <span className="ml-auto">$49.00</span>
+            <span className="ml-auto">{currency(price)}</span>
           </div>
           {/* Text */}
           <p className="mb-7 font-size-sm text-muted">{t("Color: Brown")} </p>
           {/*Footer */}
           <div className="d-flex align-items-center">
             {/* Select */}
-            <select className="custom-select custom-select-xxs w-auto">
-              <option value={1}>1</option>
-              <option value={1}>2</option>
-              <option value={1}>3</option>
-            </select>
+            <input
+              value={amountItem}
+              className="custom-select custom-select-xxs w-auto"
+            />
             {/* Remove */}
             <a className="font-size-xs text-gray-400 ml-auto" href="#!">
               <i className="fe fe-x" /> {t("Remove")}

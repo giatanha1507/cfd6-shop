@@ -1,12 +1,17 @@
+import Api from "../core/Api";
+
 const authApi = {
-  login(form) {
-    return fetch("http://cfd-reactjs.herokuapp.com/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    }).then((res) => res.json());
+  // login(form) {
+  //   return fetch("http://cfd-reactjs.herokuapp.com/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(form),
+  //   }).then((res) => res.json());
+  // },
+  login: (form) => {
+    return Api.post("login", form);
   },
   register(form) {
     return fetch("http://cfd-reactjs.herokuapp.com/register", {

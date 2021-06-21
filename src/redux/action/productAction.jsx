@@ -1,10 +1,9 @@
 import shopApi from "../../service/shopApi";
-import { PRODUCTS, CATEGORY } from "../type";
+import { PRODUCTS, CATEGORY, GET_VIEW } from "../type";
 
 export function fetchProducts(str) {
   return async (dispatch) => {
     let res = await shopApi.shopProduct(str);
-    console.log(`res`, res);
     if (res) {
       dispatch({
         type: PRODUCTS,
@@ -23,5 +22,12 @@ export function fetchCategory() {
         payload: res,
       });
     }
+  };
+}
+
+export function handleGetView(data) {
+  return {
+    type: GET_VIEW,
+    payload: data,
   };
 }

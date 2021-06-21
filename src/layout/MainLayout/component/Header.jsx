@@ -6,6 +6,8 @@ import useTranslate from "../../../core/hook/useTranslate";
 export function Header() {
   let { t } = useTranslate();
   let { login } = useSelector((store) => store.auth);
+  let { amountCart } = useSelector((store) => store.cart);
+
   return (
     <>
       <div className="navbar navbar-topbar navbar-expand-xl navbar-light bg-light">
@@ -627,7 +629,7 @@ export function Header() {
                   data-toggle="modal"
                   href="#modalShoppingCart"
                 >
-                  <span data-cart-items={2}>
+                  <span data-cart-items={amountCart}>
                     <i className="fe fe-shopping-cart" />
                   </span>
                 </a>

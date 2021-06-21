@@ -1,9 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useSelector } from "react-redux";
 import useTranslate from "../../core/hook/useTranslate";
+import { currency } from "../../utils/cur";
+import { CartItem } from "./CartItem";
 
 export function ModalShopping() {
   let { t } = useTranslate();
+  let { carts, priceTotal, amountCart } = useSelector((store) => store.cart);
+  console.log(`carts`, carts);
   return ReactDOM.createPortal(
     <div
       className="modal fixed-right fade"
@@ -26,90 +31,19 @@ export function ModalShopping() {
           </button>
           {/* Header*/}
           <div className="modal-header line-height-fixed font-size-lg">
-            <strong className="mx-auto">{t("Your Cart (2)")}</strong>
+            <strong className="mx-auto">Your Cart ({amountCart})</strong>
           </div>
           {/* List group */}
           <ul className="list-group list-group-lg list-group-flush">
-            <li className="list-group-item">
-              <div className="row align-items-center">
-                <div className="col-4">
-                  {/* Image */}
-                  <a href="./product.html">
-                    <img
-                      className="img-fluid"
-                      src="/img/products/product-6.jpg"
-                      alt="..."
-                    />
-                  </a>
-                </div>
-                <div className="col-8">
-                  {/* Title */}
-                  <p className="font-size-sm font-weight-bold mb-6">
-                    <a className="text-body" href="./product.html">
-                      {t("Cotton floral print Dress")}
-                    </a>{" "}
-                    <br />
-                    <span className="text-muted">$40.00</span>
-                  </p>
-                  {/*Footer */}
-                  <div className="d-flex align-items-center">
-                    {/* Select */}
-                    <select className="custom-select custom-select-xxs w-auto">
-                      <option value={1}>1</option>
-                      <option value={1}>2</option>
-                      <option value={1}>3</option>
-                    </select>
-                    {/* Remove */}
-                    <a className="font-size-xs text-gray-400 ml-auto" href="#!">
-                      <i className="fe fe-x" /> {t("Remove")}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li className="list-group-item">
-              <div className="row align-items-center">
-                <div className="col-4">
-                  {/* Image */}
-                  <a href="./product.html">
-                    <img
-                      className="img-fluid"
-                      src="/img/products/product-10.jpg"
-                      alt="..."
-                    />
-                  </a>
-                </div>
-                <div className="col-8">
-                  {/* Title */}
-                  <p className="font-size-sm font-weight-bold mb-6">
-                    <a className="text-body" href="./product.html">
-                      {t(" Suede cross body Bag")}
-                    </a>{" "}
-                    <br />
-                    <span className="text-muted">$49.00</span>
-                  </p>
-                  {/*Footer */}
-                  <div className="d-flex align-items-center">
-                    {/* Select */}
-                    <select className="custom-select custom-select-xxs w-auto">
-                      <option value={1}>1</option>
-                      <option value={1}>2</option>
-                      <option value={1}>3</option>
-                    </select>
-                    {/* Remove */}
-                    <a className="font-size-xs text-gray-400 ml-auto" href="#!">
-                      <i className="fe fe-x" />
-                      {t(" Remove")}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
+            {carts?.map((value, i) => (
+              <CartItem {...value} key={i} />
+            ))}
+            {/* <CartItem /> */}
           </ul>
           {/* Footer */}
           <div className="modal-footer line-height-fixed font-size-sm bg-light mt-auto">
             <strong>{t("Subtotal")}</strong>{" "}
-            <strong className="ml-auto">$89.00</strong>
+            <strong className="ml-auto">{currency(priceTotal)}</strong>
           </div>
           {/* Buttons */}
           <div className="modal-body">
@@ -154,5 +88,3 @@ export function ModalShopping() {
     document.getElementById("root")
   );
 }
-
-

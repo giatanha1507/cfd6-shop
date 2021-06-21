@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Paging, ProductShop } from "../../../component";
 import useTranslate from "../../../core/hook/useTranslate";
@@ -9,10 +9,8 @@ import { GET_NAME } from "../../../redux/type";
 let $ = window.$;
 export function ContentShop({ product, categories }) {
   let { t } = useTranslate();
-  // console.log(`categories`, categories.title);
 
-  let { paginate, categoryName } = useSelector((store) => store.product);
-  console.log(`categoryName`, categoryName);
+  let { paginate, loading } = useSelector((store) => store.product);
   let ref = useRef();
   useEffect(() => {
     $(ref.current).flickity({
@@ -22,17 +20,21 @@ export function ContentShop({ product, categories }) {
   let obj = getQuery();
   delete obj.page;
   let dispatch = useDispatch();
-  // console.log(`obj`, obj);
   function handleCategoryName(value) {
-    // console.log(`value`, value);
     dispatch({
       type: GET_NAME,
       payload: value,
     });
   }
-
+  let history = useHistory();
+  let { path } = useRouteMatch();
   let cateName = categories.find((e) => e.id == obj.categories);
-  console.log(`cateName`, obj);
+  const handleSort = (e) => {
+    e.preventDefault();
+    obj.sort = e.target.value;
+    let url = reverse(obj);
+    history.push(`${path}?${url}`);
+  };
 
   return (
     <section className="py-11">
@@ -50,7 +52,6 @@ export function ContentShop({ product, categories }) {
                     href="#categoryCollapse"
                   >
                     {t("  Category")}
-                    {/* {categories.value.title} */}
                   </a>
                   {/* Collapse */}
                   <div className="collapse show" id="categoryCollapse">
@@ -70,6 +71,16 @@ export function ContentShop({ product, categories }) {
                             </Link>
                           </li>
                         ))}
+                        {/* {categories?.map((value) => (
+                          <li key={value.id} className="list-styled-item">
+                            <a
+                              className="list-styled-link "
+                              href="#"
+                            >
+                              {value.title}
+                            </a>
+                          </li>
+                        ))} */}
                       </ul>
                     </div>
                   </div>
@@ -805,7 +816,12 @@ export function ContentShop({ product, categories }) {
             <div className="row align-items-center mb-7">
               <div className="col-12 col-md">
                 {/* Heading */}
-                <h3 className="mb-1">{cateName?.title}</h3>
+                {cateName ? (
+                  <h3 className="mb-1">{cateName?.title}</h3>
+                ) : (
+                  <h3 className="mb-1">Tất cả sản phẩm</h3>
+                )}
+
                 {/* Breadcrumb */}
                 <ol className="breadcrumb mb-md-0 font-size-xs text-gray-400">
                   <li className="breadcrumb-item">
@@ -820,8 +836,14 @@ export function ContentShop({ product, categories }) {
               </div>
               <div className="col-12 col-md-auto">
                 {/* Select */}
-                <select className="custom-select custom-select-xs">
-                  <option selected>{t("Most popular")}</option>
+                <select
+                  onChange={handleSort}
+                  className="custom-select custom-select-xs"
+                >
+                  <option value="">Sắp xếp</option>
+                  <option value="real_price.-1">Giá cao</option>
+                  <option value="real_price.1">Giá thấp</option>
+                  <option value="rating_average.-1">Đánh giá cao</option>
                 </select>
               </div>
             </div>
@@ -880,9 +902,12 @@ export function ContentShop({ product, categories }) {
             </div>
             {/* Products */}
             <div className="row">
-              {product.map((value) => (
-                <ProductShop {...value} key={value._id} />
-              ))}
+              {loading
+                ? [...Array(15)].map((e, i) => <ProductShop key={i} />)
+                : product.map((value) => (
+                    <ProductShop {...value} key={value._id} />
+                  ))}
+              {/* {} */}
             </div>
             {/* Pagination */}
             <Paging {...paginate} />
