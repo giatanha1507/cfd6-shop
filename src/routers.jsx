@@ -59,6 +59,10 @@ let routers = [
         path: "/product/:slug",
       },
       {
+        component: StoreLocator,
+        path: "/store-locator",
+      },
+      {
         component: Account,
         path: "/account",
         auth: true,
