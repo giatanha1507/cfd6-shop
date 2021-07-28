@@ -10,4 +10,3 @@ export * from "./ModalShopping";
 export * from "./ModalSidebar";
 export * from "./ModalSize";
 export * from "./ModalWait";
-// ssssssss
