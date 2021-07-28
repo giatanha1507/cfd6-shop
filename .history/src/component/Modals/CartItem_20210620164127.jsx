@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import useTranslate from "../../core/hook/useTranslate";
 import { currency } from "../../utils/cur";
-// ssssssssssss
+
 export function CartItem({ name, amountItem, price }) {
   let { t } = useTranslate();
   return (
